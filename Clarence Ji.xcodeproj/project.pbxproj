@@ -13,6 +13,13 @@
 		1114F1811A9283BD00D73E21 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1114F1801A9283BD00D73E21 /* Images.xcassets */; };
 		1114F1841A9283BD00D73E21 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1114F1821A9283BD00D73E21 /* LaunchScreen.xib */; };
 		1114F1901A9283BE00D73E21 /* Clarence_JiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1114F18F1A9283BE00D73E21 /* Clarence_JiTests.swift */; };
+		1114F19A1A928BAB00D73E21 /* CJActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1114F1991A928BAB00D73E21 /* CJActivityIndicator.swift */; };
+		1114F1A21A92974700D73E21 /* Interstate-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1114F19B1A9296EC00D73E21 /* Interstate-ExtraLight.otf */; };
+		1114F1A31A92974700D73E21 /* Interstate-ExtraLightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1114F19C1A9296EC00D73E21 /* Interstate-ExtraLightItalic.otf */; };
+		1114F1A41A92974700D73E21 /* Interstate-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1114F19D1A9296EC00D73E21 /* Interstate-LightItalic.otf */; };
+		1114F1A51A92974700D73E21 /* Interstate-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1114F19E1A9296EC00D73E21 /* Interstate-Regular.ttf */; };
+		1114F1A61A92974700D73E21 /* Interstate-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1114F19F1A9296EC00D73E21 /* Interstate-RegularItalic.otf */; };
+		1114F1A71A92974700D73E21 /* Interstate-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1114F1A01A9296EC00D73E21 /* Interstate-Thin.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +43,13 @@
 		1114F1891A9283BD00D73E21 /* Clarence JiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Clarence JiTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1114F18E1A9283BE00D73E21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1114F18F1A9283BE00D73E21 /* Clarence_JiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clarence_JiTests.swift; sourceTree = "<group>"; };
+		1114F1991A928BAB00D73E21 /* CJActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CJActivityIndicator.swift; sourceTree = "<group>"; };
+		1114F19B1A9296EC00D73E21 /* Interstate-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Interstate-ExtraLight.otf"; sourceTree = "<group>"; };
+		1114F19C1A9296EC00D73E21 /* Interstate-ExtraLightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Interstate-ExtraLightItalic.otf"; sourceTree = "<group>"; };
+		1114F19D1A9296EC00D73E21 /* Interstate-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Interstate-LightItalic.otf"; sourceTree = "<group>"; };
+		1114F19E1A9296EC00D73E21 /* Interstate-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Interstate-Regular.ttf"; sourceTree = "<group>"; };
+		1114F19F1A9296EC00D73E21 /* Interstate-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Interstate-RegularItalic.otf"; sourceTree = "<group>"; };
+		1114F1A01A9296EC00D73E21 /* Interstate-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Interstate-Thin.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +95,7 @@
 				1114F17B1A9283BD00D73E21 /* ViewController.swift */,
 				1114F17D1A9283BD00D73E21 /* Main.storyboard */,
 				1114F1801A9283BD00D73E21 /* Images.xcassets */,
+				1114F1991A928BAB00D73E21 /* CJActivityIndicator.swift */,
 				1114F1821A9283BD00D73E21 /* LaunchScreen.xib */,
 				1114F1771A9283BD00D73E21 /* Supporting Files */,
 			);
@@ -90,6 +105,7 @@
 		1114F1771A9283BD00D73E21 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1114F1A11A9296F200D73E21 /* Fonts */,
 				1114F1781A9283BD00D73E21 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -110,6 +126,19 @@
 				1114F18E1A9283BE00D73E21 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1114F1A11A9296F200D73E21 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				1114F19B1A9296EC00D73E21 /* Interstate-ExtraLight.otf */,
+				1114F19C1A9296EC00D73E21 /* Interstate-ExtraLightItalic.otf */,
+				1114F19D1A9296EC00D73E21 /* Interstate-LightItalic.otf */,
+				1114F19E1A9296EC00D73E21 /* Interstate-Regular.ttf */,
+				1114F19F1A9296EC00D73E21 /* Interstate-RegularItalic.otf */,
+				1114F1A01A9296EC00D73E21 /* Interstate-Thin.otf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +190,7 @@
 				TargetAttributes = {
 					1114F1731A9283BD00D73E21 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = G6TTA6H999;
 					};
 					1114F1881A9283BD00D73E21 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -192,6 +222,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1114F1A21A92974700D73E21 /* Interstate-ExtraLight.otf in Resources */,
+				1114F1A31A92974700D73E21 /* Interstate-ExtraLightItalic.otf in Resources */,
+				1114F1A41A92974700D73E21 /* Interstate-LightItalic.otf in Resources */,
+				1114F1A51A92974700D73E21 /* Interstate-Regular.ttf in Resources */,
+				1114F1A61A92974700D73E21 /* Interstate-RegularItalic.otf in Resources */,
+				1114F1A71A92974700D73E21 /* Interstate-Thin.otf in Resources */,
 				1114F17F1A9283BD00D73E21 /* Main.storyboard in Resources */,
 				1114F1841A9283BD00D73E21 /* LaunchScreen.xib in Resources */,
 				1114F1811A9283BD00D73E21 /* Images.xcassets in Resources */,
@@ -214,6 +250,7 @@
 			files = (
 				1114F17C1A9283BD00D73E21 /* ViewController.swift in Sources */,
 				1114F17A1A9283BD00D73E21 /* AppDelegate.swift in Sources */,
+				1114F19A1A928BAB00D73E21 /* CJActivityIndicator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +373,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Clarence Ji/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -346,6 +384,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Clarence Ji/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -405,6 +444,7 @@
 				1114F1951A9283BE00D73E21 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1114F1961A9283BE00D73E21 /* Build configuration list for PBXNativeTarget "Clarence JiTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +453,7 @@
 				1114F1981A9283BE00D73E21 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

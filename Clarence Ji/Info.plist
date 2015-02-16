@@ -30,11 +30,21 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarHidden</key>
+	<true/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Interstate-ExtraLight.otf</string>
+		<string>Interstate-ExtraLightItalic.otf</string>
+		<string>Interstate-LightItalic.otf</string>
+		<string>Interstate-Regular.ttf</string>
+		<string>Interstate-RegularItalic.otf</string>
+		<string>Interstate-Thin.otf</string>
 	</array>
 </dict>
 </plist>
