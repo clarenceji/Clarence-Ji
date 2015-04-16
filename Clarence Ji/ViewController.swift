@@ -8,21 +8,59 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIViewControllerTransitioningDelegate {
 
+    @IBOutlet var imageView_Background: UIImageView!
+    let transitionManager = CJViewTransition()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        let activityIndicator = CJActivityIndicator()
-        activityIndicator.startAnimate(self)
+        // Load Launch Image on First View
+        var launchImageName = ""
+        switch UIScreen.mainScreen().bounds.size.height {
+        case 480:
+            launchImageName = "LaunchImage-700@2x.png"
+        case 568:
+            launchImageName = "LaunchImage-700-568h@2x.png"
+        case 667:
+            launchImageName = "LaunchImage-800-667h@2x.png"
+        case 736:
+            launchImageName = "LaunchImage-800-Portrait-736h@3x.png"
+        default:
+            launchImageName = "LaunchImage"
+        }
+        imageView_Background.image = UIImage(named: launchImageName)
     }
 
+    override func viewDidAppear(animated: Bool) {
+        let timer = NSTimer(timeInterval: 0.5, target: self, selector: "transitToNextView", userInfo: nil, repeats: false)
+        timer.fire()
+    }
+    
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return self.transitionManager
+    }
+    
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return self.transitionManager
+    }
+    
+    func transitToNextView() {
+        
+        let nextView = self.storyboard!.instantiateViewControllerWithIdentifier("CJNavView1") as! CJNavView1
+        nextView.transitioningDelegate = self
+        nextView.modalPresentationStyle = .Custom
+        self.presentViewController(nextView, animated: true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
 
 }
 
