@@ -13,6 +13,8 @@ class CJTableView1_Cell: UITableViewCell, UIGestureRecognizerDelegate {
     @IBOutlet var view_BlackLayer: UIView!
     @IBOutlet var label_Title: UILabel!
     
+    var prevTouchLocation: CGPoint!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -33,7 +35,7 @@ class CJTableView1_Cell: UITableViewCell, UIGestureRecognizerDelegate {
     
     func animateBlackLayer() {
         dispatch_async(dispatch_get_main_queue(), {
-            UIView.animateWithDuration(0.3, animations: {
+            UIView.animateWithDuration(0.2, animations: {
                 self.view_BlackLayer.alpha = 1
             })
         })
@@ -41,13 +43,14 @@ class CJTableView1_Cell: UITableViewCell, UIGestureRecognizerDelegate {
     
     func hideBlackLayer() {
         dispatch_async(dispatch_get_main_queue(), {
-            UIView.animateWithDuration(0.3, animations: {
+            UIView.animateWithDuration(0.2, animations: {
                 self.view_BlackLayer.alpha = 0
             })
         })
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        prevTouchLocation = (touches.first! as! UITouch).locationInView(self)
         animateBlackLayer()
     }
     
@@ -56,7 +59,15 @@ class CJTableView1_Cell: UITableViewCell, UIGestureRecognizerDelegate {
     }
     
     override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
-        hideBlackLayer()
+        let currentTouchLocation = (touches.first! as! UITouch).locationInView(self)
+        // Calculate touch displacement
+        let displacementX = abs(currentTouchLocation.x - prevTouchLocation.x)
+        let displacementY = abs(currentTouchLocation.y - prevTouchLocation.y)
+        let displacement = sqrt(displacementX * displacementX + displacementY * displacementY)
+        if displacement > 100 {
+            hideBlackLayer()
+        }
+        
     }
 
 }

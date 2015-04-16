@@ -9,8 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController, UIViewControllerTransitioningDelegate {
-
+    
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var imageView_Background: UIImageView!
+    
     let transitionManager = CJViewTransition()
     
     override func viewDidLoad() {
@@ -30,11 +32,19 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate {
             launchImageName = "LaunchImage"
         }
         imageView_Background.image = UIImage(named: launchImageName)
+        
     }
 
     override func viewDidAppear(animated: Bool) {
-        let timer = NSTimer(timeInterval: 0.5, target: self, selector: "transitToNextView", userInfo: nil, repeats: false)
-        timer.fire()
+        CJAltimeter().getPressure { (success, reading) -> Void in
+            if success {
+                NSUserDefaults.standardUserDefaults().setFloat(reading!, forKey: "AltimeterReading")
+                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "AltimeterReadingReady")
+            }
+            self.activityIndicator.stopAnimating()
+            self.transitToNextView()
+        }
+        
     }
     
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {

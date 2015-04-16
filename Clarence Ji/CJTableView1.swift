@@ -10,24 +10,19 @@ import UIKit
 
 class CJTableView1: UITableViewController {
 
+    var nightMode = NSUserDefaults.standardUserDefaults().boolForKey("DarkMode")
     let rowHeight = (UIScreen.mainScreen().bounds.height - 20) / 5
     let screenWidth = UIScreen.mainScreen().bounds.width
     var cellArray: [AnyObject?] = [nil, nil, nil, nil, nil]
+    var prevDarkMode: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     override func viewDidAppear(animated: Bool) {
         tableView.reloadData()
+        navigationController!.setNavigationBarHidden(true, animated: true)
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -66,6 +61,11 @@ class CJTableView1: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        println("cellForRowAtIndexPath")
+        if NSUserDefaults.standardUserDefaults().boolForKey("DarkMode") != prevDarkMode {
+            println("nope")
+            cellArray = [nil, nil, nil, nil, nil]
+        }
         
         if let cellInArray: AnyObject = cellArray[indexPath.row] {
             // Get stored cell from array
@@ -73,8 +73,14 @@ class CJTableView1: UITableViewController {
         } else {
             // Initialize cell if cell is not stored in array
             var cell = NSBundle.mainBundle().loadNibNamed("CJTableView1_Cell", owner: self, options: nil)[0] as? CJTableView1_Cell
-            let imageName = "Daytime_\(indexPath.row + 1)"
-            
+            var imageName = "Daytime_\(indexPath.row + 1)"
+            if NSUserDefaults.standardUserDefaults().boolForKey("DarkMode") {
+                imageName = "Night_\(indexPath.row + 1)"
+                self.prevDarkMode = true
+            } else {
+                self.prevDarkMode = false
+            }
+        
             // Set Background Images
             cell!.backgroundView = UIImageView(image: UIImage(named: imageName))
             cell!.backgroundView?.contentMode = .ScaleAspectFill
@@ -97,6 +103,10 @@ class CJTableView1: UITableViewController {
                 cell!.label_Title.text = "Life's Good"
             case 4:
                 var cell_Barometer = NSBundle.mainBundle().loadNibNamed("CJTableView1_Cell", owner: self, options: nil)[1] as? CJTableView1_Cell_Barometer
+                cell_Barometer!.view_TableViewController = self
+                if NSUserDefaults.standardUserDefaults().boolForKey("DarkMode") {
+                    cell_Barometer!.setDarkMode()
+                }
                 return cell_Barometer!
             default:
                 cell!.label_Title.text = ""

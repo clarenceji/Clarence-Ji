@@ -25,6 +25,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>MyriadPro-Light.otf</string>
+		<string>MyriadPro-Regular.otf</string>
 	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>

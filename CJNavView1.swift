@@ -11,5 +11,14 @@ import UIKit
 class CJNavView1: UINavigationController, UIViewControllerTransitioningDelegate {
     override func viewDidLoad() {
         setNavigationBarHidden(true, animated: false)
+        
+        let titleAttributes = [
+            NSFontAttributeName : UIFont(name: "MyriadPro-Regular", size: 18)!
+        ]
+        let barItemAttributes = [
+            NSFontAttributeName : UIFont(name: "MyriadPro-Light", size: 16)!
+        ]
+        UINavigationBar.appearance().titleTextAttributes = titleAttributes
+        UIBarButtonItem.appearance().setTitleTextAttributes(barItemAttributes, forState: .Normal)
     }
 }

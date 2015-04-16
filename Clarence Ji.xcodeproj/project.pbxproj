@@ -11,7 +11,6 @@
 		1114F17C1A9283BD00D73E21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1114F17B1A9283BD00D73E21 /* ViewController.swift */; };
 		1114F17F1A9283BD00D73E21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1114F17D1A9283BD00D73E21 /* Main.storyboard */; };
 		1114F1811A9283BD00D73E21 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1114F1801A9283BD00D73E21 /* Images.xcassets */; };
-		1114F1841A9283BD00D73E21 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1114F1821A9283BD00D73E21 /* LaunchScreen.xib */; };
 		1114F1901A9283BE00D73E21 /* Clarence_JiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1114F18F1A9283BE00D73E21 /* Clarence_JiTests.swift */; };
 		1114F19A1A928BAB00D73E21 /* CJActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1114F1991A928BAB00D73E21 /* CJActivityIndicator.swift */; };
 		11ECE11B1ADEADBB005A1AF6 /* CJNavView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ECE11A1ADEADBB005A1AF6 /* CJNavView1.swift */; };
@@ -21,6 +20,11 @@
 		11ECE1271ADECDDC005A1AF6 /* CJViewTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ECE1261ADECDDC005A1AF6 /* CJViewTransition.swift */; };
 		11ECE12C1ADFE1E6005A1AF6 /* MyriadPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 11ECE1281ADFE0EB005A1AF6 /* MyriadPro-Light.otf */; };
 		11ECE1301ADFE9BA005A1AF6 /* CJTableView1_Cell_Barometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ECE12F1ADFE9BA005A1AF6 /* CJTableView1_Cell_Barometer.swift */; };
+		11ECE1341ADFEB92005A1AF6 /* CJAltimeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ECE1331ADFEB92005A1AF6 /* CJAltimeter.swift */; };
+		11ECE1361ADFFF46005A1AF6 /* CJTableView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ECE1351ADFFF46005A1AF6 /* CJTableView3.swift */; };
+		11ECE1391AE00DC2005A1AF6 /* CJTableView3_Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ECE1371AE00DC2005A1AF6 /* CJTableView3_Cell.swift */; };
+		11ECE13A1AE00DC2005A1AF6 /* CJTableView3_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11ECE1381AE00DC2005A1AF6 /* CJTableView3_Cell.xib */; };
+		11ECE13C1AE01168005A1AF6 /* MyriadPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 11ECE13B1AE01159005A1AF6 /* MyriadPro-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +44,6 @@
 		1114F17B1A9283BD00D73E21 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1114F17E1A9283BD00D73E21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1114F1801A9283BD00D73E21 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		1114F1831A9283BD00D73E21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		1114F1891A9283BD00D73E21 /* Clarence JiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Clarence JiTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1114F18E1A9283BE00D73E21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1114F18F1A9283BE00D73E21 /* Clarence_JiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clarence_JiTests.swift; sourceTree = "<group>"; };
@@ -52,6 +55,11 @@
 		11ECE1261ADECDDC005A1AF6 /* CJViewTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CJViewTransition.swift; sourceTree = "<group>"; };
 		11ECE1281ADFE0EB005A1AF6 /* MyriadPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Light.otf"; sourceTree = "<group>"; };
 		11ECE12F1ADFE9BA005A1AF6 /* CJTableView1_Cell_Barometer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CJTableView1_Cell_Barometer.swift; path = ../CJTableView1_Cell_Barometer.swift; sourceTree = "<group>"; };
+		11ECE1331ADFEB92005A1AF6 /* CJAltimeter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CJAltimeter.swift; sourceTree = "<group>"; };
+		11ECE1351ADFFF46005A1AF6 /* CJTableView3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CJTableView3.swift; sourceTree = "<group>"; };
+		11ECE1371AE00DC2005A1AF6 /* CJTableView3_Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CJTableView3_Cell.swift; sourceTree = "<group>"; };
+		11ECE1381AE00DC2005A1AF6 /* CJTableView3_Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CJTableView3_Cell.xib; sourceTree = "<group>"; };
+		11ECE13B1AE01159005A1AF6 /* MyriadPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,18 +101,9 @@
 		1114F1761A9283BD00D73E21 /* Clarence Ji */ = {
 			isa = PBXGroup;
 			children = (
+				11ECE1321ADFEB78005A1AF6 /* Support Classes */,
+				11ECE1311ADFEB4B005A1AF6 /* UI / Views */,
 				1114F1791A9283BD00D73E21 /* AppDelegate.swift */,
-				1114F17B1A9283BD00D73E21 /* ViewController.swift */,
-				1114F17D1A9283BD00D73E21 /* Main.storyboard */,
-				11ECE11A1ADEADBB005A1AF6 /* CJNavView1.swift */,
-				11ECE11C1ADEAE21005A1AF6 /* CJTableView1.swift */,
-				11ECE1261ADECDDC005A1AF6 /* CJViewTransition.swift */,
-				11ECE1201ADEBD8D005A1AF6 /* CJTableView1_Cell.xib */,
-				11ECE1221ADEBDE0005A1AF6 /* CJTableView1_Cell.swift */,
-				11ECE12F1ADFE9BA005A1AF6 /* CJTableView1_Cell_Barometer.swift */,
-				1114F1801A9283BD00D73E21 /* Images.xcassets */,
-				1114F1991A928BAB00D73E21 /* CJActivityIndicator.swift */,
-				1114F1821A9283BD00D73E21 /* LaunchScreen.xib */,
 				1114F1771A9283BD00D73E21 /* Supporting Files */,
 			);
 			path = "Clarence Ji";
@@ -113,6 +112,7 @@
 		1114F1771A9283BD00D73E21 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1114F1801A9283BD00D73E21 /* Images.xcassets */,
 				1114F1A11A9296F200D73E21 /* Fonts */,
 				1114F1781A9283BD00D73E21 /* Info.plist */,
 			);
@@ -140,8 +140,36 @@
 			isa = PBXGroup;
 			children = (
 				11ECE1281ADFE0EB005A1AF6 /* MyriadPro-Light.otf */,
+				11ECE13B1AE01159005A1AF6 /* MyriadPro-Regular.otf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		11ECE1311ADFEB4B005A1AF6 /* UI / Views */ = {
+			isa = PBXGroup;
+			children = (
+				1114F17D1A9283BD00D73E21 /* Main.storyboard */,
+				11ECE1261ADECDDC005A1AF6 /* CJViewTransition.swift */,
+				1114F17B1A9283BD00D73E21 /* ViewController.swift */,
+				11ECE11A1ADEADBB005A1AF6 /* CJNavView1.swift */,
+				11ECE11C1ADEAE21005A1AF6 /* CJTableView1.swift */,
+				11ECE1351ADFFF46005A1AF6 /* CJTableView3.swift */,
+				11ECE1201ADEBD8D005A1AF6 /* CJTableView1_Cell.xib */,
+				11ECE1221ADEBDE0005A1AF6 /* CJTableView1_Cell.swift */,
+				11ECE12F1ADFE9BA005A1AF6 /* CJTableView1_Cell_Barometer.swift */,
+				11ECE1381AE00DC2005A1AF6 /* CJTableView3_Cell.xib */,
+				11ECE1371AE00DC2005A1AF6 /* CJTableView3_Cell.swift */,
+				1114F1991A928BAB00D73E21 /* CJActivityIndicator.swift */,
+			);
+			name = "UI / Views";
+			sourceTree = "<group>";
+		};
+		11ECE1321ADFEB78005A1AF6 /* Support Classes */ = {
+			isa = PBXGroup;
+			children = (
+				11ECE1331ADFEB92005A1AF6 /* CJAltimeter.swift */,
+			);
+			name = "Support Classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,9 +254,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				11ECE12C1ADFE1E6005A1AF6 /* MyriadPro-Light.otf in Resources */,
+				11ECE13C1AE01168005A1AF6 /* MyriadPro-Regular.otf in Resources */,
+				11ECE13A1AE00DC2005A1AF6 /* CJTableView3_Cell.xib in Resources */,
 				11ECE1211ADEBD8D005A1AF6 /* CJTableView1_Cell.xib in Resources */,
 				1114F17F1A9283BD00D73E21 /* Main.storyboard in Resources */,
-				1114F1841A9283BD00D73E21 /* LaunchScreen.xib in Resources */,
 				1114F1811A9283BD00D73E21 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,14 +276,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11ECE1391AE00DC2005A1AF6 /* CJTableView3_Cell.swift in Sources */,
 				1114F17C1A9283BD00D73E21 /* ViewController.swift in Sources */,
 				11ECE11B1ADEADBB005A1AF6 /* CJNavView1.swift in Sources */,
 				1114F17A1A9283BD00D73E21 /* AppDelegate.swift in Sources */,
 				11ECE1271ADECDDC005A1AF6 /* CJViewTransition.swift in Sources */,
+				11ECE1361ADFFF46005A1AF6 /* CJTableView3.swift in Sources */,
 				11ECE1301ADFE9BA005A1AF6 /* CJTableView1_Cell_Barometer.swift in Sources */,
 				1114F19A1A928BAB00D73E21 /* CJActivityIndicator.swift in Sources */,
 				11ECE1231ADEBDE0005A1AF6 /* CJTableView1_Cell.swift in Sources */,
 				11ECE11D1ADEAE21005A1AF6 /* CJTableView1.swift in Sources */,
+				11ECE1341ADFEB92005A1AF6 /* CJAltimeter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,14 +315,6 @@
 				1114F17E1A9283BD00D73E21 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		1114F1821A9283BD00D73E21 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1114F1831A9283BD00D73E21 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
