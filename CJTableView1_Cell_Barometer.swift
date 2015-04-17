@@ -31,7 +31,16 @@ class CJTableView1_Cell_Barometer: UITableViewCell {
             let hour = components.hour
             let minutes = components.minute
             
-            label_Reading.text = "\(hour):\(minutes)"
+            var str_Hour = "\(hour)"
+            var str_Min = "\(minutes)"
+            if hour < 10 {
+                str_Hour = "0\(hour)"
+            }
+            if minutes < 10 {
+                str_Min = "0\(minutes)"
+            }
+            
+            label_Reading.text = "\(str_Hour):\(str_Min)"
         }
         self.selectionStyle = .None
         self.separatorInset = UIEdgeInsetsMake(0, 1200, 0, 0)

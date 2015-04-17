@@ -25,7 +25,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zY1-am-3FD">
                         <rect key="frame" x="8" y="13" width="304" height="28"/>
                         <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="5Om-TA-ygP"/>
+                            <constraint firstAttribute="height" constant="28" id="5Om-TA-ygP"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -41,7 +41,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cOb-4F-s0T">
-                        <rect key="frame" x="263" y="47" width="51" height="31"/>
+                        <rect key="frame" x="263" y="29" width="51" height="31"/>
                         <connections>
                             <action selector="switch_DarkMode_Triggered:" destination="KGk-i7-Jjw" eventType="valueChanged" id="ECk-kl-Lwt"/>
                         </connections>
@@ -52,15 +52,15 @@
                     <constraint firstItem="zY1-am-3FD" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="3BV-Ua-5nA"/>
                     <constraint firstItem="aT7-fO-5bj" firstAttribute="top" secondItem="zY1-am-3FD" secondAttribute="bottom" constant="8" id="4Xj-5A-O4P"/>
                     <constraint firstItem="zY1-am-3FD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="8HE-tK-hkj"/>
+                    <constraint firstAttribute="centerY" secondItem="cOb-4F-s0T" secondAttribute="centerY" id="CbF-iN-fr4"/>
                     <constraint firstItem="aT7-fO-5bj" firstAttribute="trailing" secondItem="zY1-am-3FD" secondAttribute="trailing" id="EdT-Ii-wBb"/>
                     <constraint firstItem="cOb-4F-s0T" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="T8a-xk-iPE"/>
-                    <constraint firstItem="aT7-fO-5bj" firstAttribute="centerY" secondItem="cOb-4F-s0T" secondAttribute="centerY" id="TT2-Dl-ovo"/>
                     <constraint firstItem="aT7-fO-5bj" firstAttribute="leading" secondItem="zY1-am-3FD" secondAttribute="leading" id="eoY-Fv-CPz"/>
                     <constraint firstAttribute="bottomMargin" secondItem="aT7-fO-5bj" secondAttribute="bottom" constant="5" id="mz4-Bi-jZw"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="label_Text" destination="aT7-fO-5bj" id="AR5-ds-pu3"/>
+                <outlet property="label_Text" destination="aT7-fO-5bj" id="cDM-Ur-g7T"/>
                 <outlet property="label_Title" destination="zY1-am-3FD" id="Bah-Jw-bBL"/>
                 <outlet property="switch_DarkMode" destination="cOb-4F-s0T" id="vy9-U2-nfq"/>
             </connections>

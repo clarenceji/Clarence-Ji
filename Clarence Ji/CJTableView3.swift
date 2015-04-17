@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MessageUI
 
-class CJTableView3: UITableViewController, UIViewControllerTransitioningDelegate {
+class CJTableView3: UITableViewController, UIViewControllerTransitioningDelegate, MFMailComposeViewControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,16 +43,60 @@ class CJTableView3: UITableViewController, UIViewControllerTransitioningDelegate
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = NSBundle.mainBundle().loadNibNamed("CJTableView3_Cell", owner: self, options: nil)[0] as! CJTableView3_Cell
         cell.setLabels(indexPath.row)
-//        
-//        switch indexPath.row {
-//        case 0:
-//            
-//            return cell
-//        default:
-//            break
-//        }
+        cell.tableView = self
+        switch indexPath.row {
+            
+        case 2, 3:
+            cell.selectionStyle = .Gray
+            cell.accessoryType = .DisclosureIndicator
+        default:
+            break
+        }
 
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.cellForRowAtIndexPath(indexPath)?.selected = false
+        switch indexPath.row {
+        case 2:
+            self.sendEmail()
+        case 3:
+            UIApplication.sharedApplication().openURL(NSURL(string: "http://clarenceji.net")!)
+        default:
+            break
+        }
+    }
+    
+    func sendEmail() {
+        let emailViewController = configuredMailComposeViewController()
+        if MFMailComposeViewController.canSendMail() {
+            self.presentViewController(emailViewController, animated: true, completion: nil)
+        } else {
+            self.showSendMailErrorAlert()
+        }
+    }
+    
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
+        
+        mailComposerVC.setToRecipients(["clarence@clarenceji.net"])
+        mailComposerVC.setSubject("Message from Clarence.Ji App")
+        mailComposerVC.setMessageBody("", isHTML: false)
+        
+        return mailComposerVC
+    }
+    
+    func showSendMailErrorAlert() {
+        let sendMailErrorAlert = UIAlertController(title: "Cannot Send Email", message: "Please check your email settings and try again.", preferredStyle: .Alert)
+        sendMailErrorAlert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
+        self.presentViewController(sendMailErrorAlert, animated: true, completion: nil)
+    }
+    
+    // MARK: MFMailComposeViewControllerDelegate Method
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
     }
     
 //    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

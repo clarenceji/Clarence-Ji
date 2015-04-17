@@ -9,16 +9,25 @@
 import UIKit
 
 class CJNavView1: UINavigationController, UIViewControllerTransitioningDelegate {
+    
+    static let titleAttributes = [
+        NSFontAttributeName : UIFont(name: "MyriadPro-Regular", size: 18)!
+    ]
+    static let barItemAttributes = [
+        NSFontAttributeName : UIFont(name: "MyriadPro-Light", size: 16)!
+    ]
+    
+    class func applyNavigationBarStyle() {
+        UINavigationBar.appearance().titleTextAttributes = CJNavView1.titleAttributes
+        UIBarButtonItem.appearance().setTitleTextAttributes(CJNavView1.barItemAttributes, forState: .Normal)
+    }
+    
+    class func applyNavigationBarStyleDark() {
+        
+    }
+    
     override func viewDidLoad() {
         setNavigationBarHidden(true, animated: false)
-        
-        let titleAttributes = [
-            NSFontAttributeName : UIFont(name: "MyriadPro-Regular", size: 18)!
-        ]
-        let barItemAttributes = [
-            NSFontAttributeName : UIFont(name: "MyriadPro-Light", size: 16)!
-        ]
-        UINavigationBar.appearance().titleTextAttributes = titleAttributes
-        UIBarButtonItem.appearance().setTitleTextAttributes(barItemAttributes, forState: .Normal)
+        CJNavView1.applyNavigationBarStyle()
     }
 }

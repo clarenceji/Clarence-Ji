@@ -7,24 +7,27 @@
 //
 
 import UIKit
+import MessageUI
 
-class CJTableView3_Cell: UITableViewCell {
+class CJTableView3_Cell: UITableViewCell, MFMailComposeViewControllerDelegate {
 
     @IBOutlet var label_Title: UILabel!
     @IBOutlet var label_Text: UILabel!
     @IBOutlet var switch_DarkMode: UISwitch!
+    
+    var tableView: CJTableView3!
     
     let nightMode = NSUserDefaults.standardUserDefaults().boolForKey("DarkMode")
     
     let strings_Title = [
         "Why showing the air pressure?",
         "Dark Mode",
-        "Contact by Email",
+        "Contact me by Email",
         "Personal Website"
     ]
     
     let strings_Text = [
-        "The app itself can be greatly affected by air pressure. There are two modes, normal and dark mode. When it is going to or is about to rain, it will automatically switched to dark mode, showing you more gorgeous photos taken by myself. I hope you don't feel sad or annoyed during the bad weather. \nYou can also switch between the two modes manually.",
+        "Air pressure and weather conditions are linked, and you can see different scenaries as the weather changes. This is greatly reflected by this app, which has two modes, the normal and the dark mode. When you cannot see the sun,  it will automatically switched to dark mode, showing you another set of gorgeous photos taken by myself. \nYou can also switch between the two modes manually.",
         "Turn on to use dark mode.",
         "clarence@clarenceji.net",
         "Clarenceji.net"
