@@ -16,6 +16,7 @@ class CJTableView3: UITableViewController, UIViewControllerTransitioningDelegate
 
         tableView.estimatedRowHeight = 68.0
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.tableFooterView = UIView(frame: CGRectZero)
     }
     
     override func viewDidAppear(animated: Bool) {

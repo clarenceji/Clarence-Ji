@@ -25,7 +25,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zY1-am-3FD">
                         <rect key="frame" x="8" y="13" width="304" height="28"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="28" id="5Om-TA-ygP"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="5Om-TA-ygP"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -42,6 +42,7 @@
                     </label>
                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cOb-4F-s0T">
                         <rect key="frame" x="263" y="29" width="51" height="31"/>
+                        <color key="onTintColor" red="1" green="0.82745098039999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <connections>
                             <action selector="switch_DarkMode_Triggered:" destination="KGk-i7-Jjw" eventType="valueChanged" id="ECk-kl-Lwt"/>
                         </connections>
@@ -59,6 +60,8 @@
                     <constraint firstAttribute="bottomMargin" secondItem="aT7-fO-5bj" secondAttribute="bottom" constant="5" id="mz4-Bi-jZw"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="label_Text" destination="aT7-fO-5bj" id="cDM-Ur-g7T"/>
                 <outlet property="label_Title" destination="zY1-am-3FD" id="Bah-Jw-bBL"/>
