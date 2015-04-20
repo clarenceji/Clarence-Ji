@@ -12,6 +12,8 @@ class CJBackButton: UIButton, UIGestureRecognizerDelegate {
     
     var sourceView: UIViewController!
     
+    var blackLayer = UIView()
+    
     override init(frame: CGRect) {
         super.init(frame: CGRectMake(frame.origin.x, frame.origin.y, 30, 30))
         self.setImage(UIImage(named: "BackButton"), forState: .Normal)
@@ -23,6 +25,13 @@ class CJBackButton: UIButton, UIGestureRecognizerDelegate {
         blurView.clipsToBounds = true
         blurView.userInteractionEnabled = true
         self.insertSubview(blurView, belowSubview: imageView!)
+        
+        blackLayer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.6)
+        blackLayer.frame = self.bounds
+        blackLayer.layer.cornerRadius = self.bounds.width / 2
+        blackLayer.clipsToBounds = true
+        blackLayer.alpha = 0
+        self.insertSubview(blackLayer, belowSubview: self.imageView!)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -42,7 +51,28 @@ class CJBackButton: UIButton, UIGestureRecognizerDelegate {
         self.sourceView.navigationController?.popViewControllerAnimated(true)
     }
     
-//    override func addTarget(target: AnyObject?, action: Selector, forControlEvents controlEvents: UIControlEvents) {
-//        super.addTarget(target, action: action, forControlEvents: controlEvents)
-//    }
+    
+    var prevTouchLocation: CGPoint!
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        println("touchesBegan")
+        prevTouchLocation = (touches.first! as! UITouch).locationInView(self)
+        UIView.animateWithDuration(0.2, animations: {
+            self.blackLayer.alpha = 1.0
+        })
+    }
+    
+    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
+        let currentTouchLocation = (touches.first! as! UITouch).locationInView(self)
+        // Calculate touch displacement
+        let displacementX = abs(currentTouchLocation.x - prevTouchLocation.x)
+        let displacementY = abs(currentTouchLocation.y - prevTouchLocation.y)
+        let displacement = sqrt(displacementX * displacementX + displacementY * displacementY)
+        if displacement > 30 {
+            UIView.animateWithDuration(0.2, animations: {
+                self.blackLayer.alpha = 0.0
+            })
+        }
+    }
+    
 }

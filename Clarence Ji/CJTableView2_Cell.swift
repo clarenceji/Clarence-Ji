@@ -10,11 +10,12 @@ import UIKit
 
 class CJTableView2_Cell: UITableViewCell {
 
-    @IBOutlet var label_Main: UILabel!
+    @IBOutlet var label_Main: UITextView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        label_Main.textContainerInset = UIEdgeInsetsMake(15, 7, 15, 7)
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

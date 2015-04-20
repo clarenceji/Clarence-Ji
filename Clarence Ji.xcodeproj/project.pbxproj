@@ -17,6 +17,9 @@
 		1179E37C1AE409DA0036A5D4 /* Text_Intro.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1179E37B1AE409DA0036A5D4 /* Text_Intro.txt */; };
 		1179E37F1AE40E860036A5D4 /* CJTableView2_Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1179E37D1AE40E860036A5D4 /* CJTableView2_Cell.swift */; };
 		1179E3801AE40E860036A5D4 /* CJTableView2_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1179E37E1AE40E860036A5D4 /* CJTableView2_Cell.xib */; };
+		11A37DDC1AE55CAF006B1F80 /* CJTableView2_ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A37DDB1AE55CAF006B1F80 /* CJTableView2_ImageCell.swift */; };
+		11A37DDE1AE56094006B1F80 /* CJImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A37DDD1AE56094006B1F80 /* CJImageView.swift */; };
+		11A37DE21AE57649006B1F80 /* Text_Education.txt in Resources */ = {isa = PBXBuildFile; fileRef = 11A37DE11AE57649006B1F80 /* Text_Education.txt */; };
 		11C784421AE45E7B0072A3E9 /* CJBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C784411AE45E7B0072A3E9 /* CJBackButton.swift */; };
 		11ECE11B1ADEADBB005A1AF6 /* CJNavView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ECE11A1ADEADBB005A1AF6 /* CJNavView1.swift */; };
 		11ECE11D1ADEAE21005A1AF6 /* CJTableView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ECE11C1ADEAE21005A1AF6 /* CJTableView1.swift */; };
@@ -57,6 +60,9 @@
 		1179E37B1AE409DA0036A5D4 /* Text_Intro.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Text_Intro.txt; sourceTree = "<group>"; };
 		1179E37D1AE40E860036A5D4 /* CJTableView2_Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CJTableView2_Cell.swift; sourceTree = "<group>"; };
 		1179E37E1AE40E860036A5D4 /* CJTableView2_Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CJTableView2_Cell.xib; sourceTree = "<group>"; };
+		11A37DDB1AE55CAF006B1F80 /* CJTableView2_ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CJTableView2_ImageCell.swift; sourceTree = "<group>"; };
+		11A37DDD1AE56094006B1F80 /* CJImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CJImageView.swift; sourceTree = "<group>"; };
+		11A37DE11AE57649006B1F80 /* Text_Education.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Text_Education.txt; sourceTree = "<group>"; };
 		11C784411AE45E7B0072A3E9 /* CJBackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CJBackButton.swift; sourceTree = "<group>"; };
 		11ECE11A1ADEADBB005A1AF6 /* CJNavView1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CJNavView1.swift; path = ../CJNavView1.swift; sourceTree = "<group>"; };
 		11ECE11C1ADEAE21005A1AF6 /* CJTableView1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CJTableView1.swift; sourceTree = "<group>"; };
@@ -126,6 +132,7 @@
 				1114F1A11A9296F200D73E21 /* Fonts */,
 				1114F1781A9283BD00D73E21 /* Info.plist */,
 				1179E37B1AE409DA0036A5D4 /* Text_Intro.txt */,
+				11A37DE11AE57649006B1F80 /* Text_Education.txt */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -184,6 +191,7 @@
 			children = (
 				1179E3791AE2B9D60036A5D4 /* CJTableView2.swift */,
 				1179E37D1AE40E860036A5D4 /* CJTableView2_Cell.swift */,
+				11A37DDB1AE55CAF006B1F80 /* CJTableView2_ImageCell.swift */,
 				1179E37E1AE40E860036A5D4 /* CJTableView2_Cell.xib */,
 			);
 			name = "Detail View";
@@ -207,6 +215,7 @@
 			children = (
 				11ECE1331ADFEB92005A1AF6 /* CJAltimeter.swift */,
 				11C784411AE45E7B0072A3E9 /* CJBackButton.swift */,
+				11A37DDD1AE56094006B1F80 /* CJImageView.swift */,
 			);
 			name = "Support Classes";
 			sourceTree = "<group>";
@@ -293,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11ECE12C1ADFE1E6005A1AF6 /* MyriadPro-Light.otf in Resources */,
+				11A37DE21AE57649006B1F80 /* Text_Education.txt in Resources */,
 				11ECE13C1AE01168005A1AF6 /* MyriadPro-Regular.otf in Resources */,
 				11ECE13A1AE00DC2005A1AF6 /* CJTableView3_Cell.xib in Resources */,
 				11ECE1211ADEBD8D005A1AF6 /* CJTableView1_Cell.xib in Resources */,
@@ -322,7 +332,9 @@
 				11ECE11B1ADEADBB005A1AF6 /* CJNavView1.swift in Sources */,
 				1179E37A1AE2B9D60036A5D4 /* CJTableView2.swift in Sources */,
 				1114F17A1A9283BD00D73E21 /* AppDelegate.swift in Sources */,
+				11A37DDC1AE55CAF006B1F80 /* CJTableView2_ImageCell.swift in Sources */,
 				11ECE1271ADECDDC005A1AF6 /* CJViewTransition.swift in Sources */,
+				11A37DDE1AE56094006B1F80 /* CJImageView.swift in Sources */,
 				11ECE1361ADFFF46005A1AF6 /* CJTableView3.swift in Sources */,
 				11C784421AE45E7B0072A3E9 /* CJBackButton.swift in Sources */,
 				11ECE1301ADFE9BA005A1AF6 /* CJTableView1_Cell_Barometer.swift in Sources */,
