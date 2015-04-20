@@ -13,6 +13,11 @@
 		1114F1811A9283BD00D73E21 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1114F1801A9283BD00D73E21 /* Images.xcassets */; };
 		1114F1901A9283BE00D73E21 /* Clarence_JiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1114F18F1A9283BE00D73E21 /* Clarence_JiTests.swift */; };
 		1114F19A1A928BAB00D73E21 /* CJActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1114F1991A928BAB00D73E21 /* CJActivityIndicator.swift */; };
+		1179E37A1AE2B9D60036A5D4 /* CJTableView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1179E3791AE2B9D60036A5D4 /* CJTableView2.swift */; };
+		1179E37C1AE409DA0036A5D4 /* Text_Intro.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1179E37B1AE409DA0036A5D4 /* Text_Intro.txt */; };
+		1179E37F1AE40E860036A5D4 /* CJTableView2_Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1179E37D1AE40E860036A5D4 /* CJTableView2_Cell.swift */; };
+		1179E3801AE40E860036A5D4 /* CJTableView2_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1179E37E1AE40E860036A5D4 /* CJTableView2_Cell.xib */; };
+		11C784421AE45E7B0072A3E9 /* CJBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C784411AE45E7B0072A3E9 /* CJBackButton.swift */; };
 		11ECE11B1ADEADBB005A1AF6 /* CJNavView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ECE11A1ADEADBB005A1AF6 /* CJNavView1.swift */; };
 		11ECE11D1ADEAE21005A1AF6 /* CJTableView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11ECE11C1ADEAE21005A1AF6 /* CJTableView1.swift */; };
 		11ECE1211ADEBD8D005A1AF6 /* CJTableView1_Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11ECE1201ADEBD8D005A1AF6 /* CJTableView1_Cell.xib */; };
@@ -48,6 +53,11 @@
 		1114F18E1A9283BE00D73E21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1114F18F1A9283BE00D73E21 /* Clarence_JiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clarence_JiTests.swift; sourceTree = "<group>"; };
 		1114F1991A928BAB00D73E21 /* CJActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CJActivityIndicator.swift; sourceTree = "<group>"; };
+		1179E3791AE2B9D60036A5D4 /* CJTableView2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CJTableView2.swift; sourceTree = "<group>"; };
+		1179E37B1AE409DA0036A5D4 /* Text_Intro.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Text_Intro.txt; sourceTree = "<group>"; };
+		1179E37D1AE40E860036A5D4 /* CJTableView2_Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CJTableView2_Cell.swift; sourceTree = "<group>"; };
+		1179E37E1AE40E860036A5D4 /* CJTableView2_Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CJTableView2_Cell.xib; sourceTree = "<group>"; };
+		11C784411AE45E7B0072A3E9 /* CJBackButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CJBackButton.swift; sourceTree = "<group>"; };
 		11ECE11A1ADEADBB005A1AF6 /* CJNavView1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CJNavView1.swift; path = ../CJNavView1.swift; sourceTree = "<group>"; };
 		11ECE11C1ADEAE21005A1AF6 /* CJTableView1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CJTableView1.swift; sourceTree = "<group>"; };
 		11ECE1201ADEBD8D005A1AF6 /* CJTableView1_Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CJTableView1_Cell.xib; path = ../CJTableView1_Cell.xib; sourceTree = "<group>"; };
@@ -115,6 +125,7 @@
 				1114F1801A9283BD00D73E21 /* Images.xcassets */,
 				1114F1A11A9296F200D73E21 /* Fonts */,
 				1114F1781A9283BD00D73E21 /* Info.plist */,
+				1179E37B1AE409DA0036A5D4 /* Text_Intro.txt */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -145,20 +156,47 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
+		1179E3761AE2B9440036A5D4 /* Main View */ = {
+			isa = PBXGroup;
+			children = (
+				1114F17B1A9283BD00D73E21 /* ViewController.swift */,
+				11ECE11A1ADEADBB005A1AF6 /* CJNavView1.swift */,
+				11ECE11C1ADEAE21005A1AF6 /* CJTableView1.swift */,
+				11ECE1201ADEBD8D005A1AF6 /* CJTableView1_Cell.xib */,
+				11ECE1221ADEBDE0005A1AF6 /* CJTableView1_Cell.swift */,
+				11ECE12F1ADFE9BA005A1AF6 /* CJTableView1_Cell_Barometer.swift */,
+			);
+			name = "Main View";
+			sourceTree = "<group>";
+		};
+		1179E3771AE2B9820036A5D4 /* Info View */ = {
+			isa = PBXGroup;
+			children = (
+				11ECE1351ADFFF46005A1AF6 /* CJTableView3.swift */,
+				11ECE1381AE00DC2005A1AF6 /* CJTableView3_Cell.xib */,
+				11ECE1371AE00DC2005A1AF6 /* CJTableView3_Cell.swift */,
+			);
+			name = "Info View";
+			sourceTree = "<group>";
+		};
+		1179E3781AE2B9960036A5D4 /* Detail View */ = {
+			isa = PBXGroup;
+			children = (
+				1179E3791AE2B9D60036A5D4 /* CJTableView2.swift */,
+				1179E37D1AE40E860036A5D4 /* CJTableView2_Cell.swift */,
+				1179E37E1AE40E860036A5D4 /* CJTableView2_Cell.xib */,
+			);
+			name = "Detail View";
+			sourceTree = "<group>";
+		};
 		11ECE1311ADFEB4B005A1AF6 /* UI / Views */ = {
 			isa = PBXGroup;
 			children = (
 				1114F17D1A9283BD00D73E21 /* Main.storyboard */,
 				11ECE1261ADECDDC005A1AF6 /* CJViewTransition.swift */,
-				1114F17B1A9283BD00D73E21 /* ViewController.swift */,
-				11ECE11A1ADEADBB005A1AF6 /* CJNavView1.swift */,
-				11ECE11C1ADEAE21005A1AF6 /* CJTableView1.swift */,
-				11ECE1351ADFFF46005A1AF6 /* CJTableView3.swift */,
-				11ECE1201ADEBD8D005A1AF6 /* CJTableView1_Cell.xib */,
-				11ECE1221ADEBDE0005A1AF6 /* CJTableView1_Cell.swift */,
-				11ECE12F1ADFE9BA005A1AF6 /* CJTableView1_Cell_Barometer.swift */,
-				11ECE1381AE00DC2005A1AF6 /* CJTableView3_Cell.xib */,
-				11ECE1371AE00DC2005A1AF6 /* CJTableView3_Cell.swift */,
+				1179E3761AE2B9440036A5D4 /* Main View */,
+				1179E3781AE2B9960036A5D4 /* Detail View */,
+				1179E3771AE2B9820036A5D4 /* Info View */,
 				1114F1991A928BAB00D73E21 /* CJActivityIndicator.swift */,
 			);
 			name = "UI / Views";
@@ -168,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				11ECE1331ADFEB92005A1AF6 /* CJAltimeter.swift */,
+				11C784411AE45E7B0072A3E9 /* CJBackButton.swift */,
 			);
 			name = "Support Classes";
 			sourceTree = "<group>";
@@ -258,7 +297,9 @@
 				11ECE13A1AE00DC2005A1AF6 /* CJTableView3_Cell.xib in Resources */,
 				11ECE1211ADEBD8D005A1AF6 /* CJTableView1_Cell.xib in Resources */,
 				1114F17F1A9283BD00D73E21 /* Main.storyboard in Resources */,
+				1179E37C1AE409DA0036A5D4 /* Text_Intro.txt in Resources */,
 				1114F1811A9283BD00D73E21 /* Images.xcassets in Resources */,
+				1179E3801AE40E860036A5D4 /* CJTableView2_Cell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,10 +320,13 @@
 				11ECE1391AE00DC2005A1AF6 /* CJTableView3_Cell.swift in Sources */,
 				1114F17C1A9283BD00D73E21 /* ViewController.swift in Sources */,
 				11ECE11B1ADEADBB005A1AF6 /* CJNavView1.swift in Sources */,
+				1179E37A1AE2B9D60036A5D4 /* CJTableView2.swift in Sources */,
 				1114F17A1A9283BD00D73E21 /* AppDelegate.swift in Sources */,
 				11ECE1271ADECDDC005A1AF6 /* CJViewTransition.swift in Sources */,
 				11ECE1361ADFFF46005A1AF6 /* CJTableView3.swift in Sources */,
+				11C784421AE45E7B0072A3E9 /* CJBackButton.swift in Sources */,
 				11ECE1301ADFE9BA005A1AF6 /* CJTableView1_Cell_Barometer.swift in Sources */,
+				1179E37F1AE40E860036A5D4 /* CJTableView2_Cell.swift in Sources */,
 				1114F19A1A928BAB00D73E21 /* CJActivityIndicator.swift in Sources */,
 				11ECE1231ADEBDE0005A1AF6 /* CJTableView1_Cell.swift in Sources */,
 				11ECE11D1ADEAE21005A1AF6 /* CJTableView1.swift in Sources */,

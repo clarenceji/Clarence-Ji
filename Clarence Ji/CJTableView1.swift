@@ -21,8 +21,11 @@ class CJTableView1: UITableViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        tableView.reloadData()
         navigationController!.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        tableView.reloadData()
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -90,6 +93,8 @@ class CJTableView1: UITableViewController {
             cell!.selectedBackgroundView?.contentMode = .ScaleAspectFill
             cell!.selectedBackgroundView?.clipsToBounds = true
             
+            cell!.index = indexPath.row
+            cell!.tableView = self
             // Set label texts
             switch indexPath.row {
             case 0:
@@ -115,6 +120,17 @@ class CJTableView1: UITableViewController {
             // Store cell in array and return it
             cellArray[indexPath.row] = cell!
             return cell!
+        }
+        
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        println("Selected")
+        if indexPath.row != 4 {
+            for index in 0..<5 {
+                tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0))?.alpha = 0
+            }
+            tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Top, animated: true)
         }
         
     }

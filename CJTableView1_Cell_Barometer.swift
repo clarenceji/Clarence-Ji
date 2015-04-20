@@ -27,23 +27,6 @@ class CJTableView1_Cell_Barometer: UITableViewCell {
             label_Title.text = "Your Local Time"
             let timer = NSTimer(timeInterval: 1.0, target: self, selector: Selector("timerTick:"), userInfo: nil, repeats: true)
             NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSRunLoopCommonModes)
-            
-//            let date = NSDate()
-//            let calendar = NSCalendar.currentCalendar()
-//            let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute, fromDate: date)
-//            let hour = components.hour
-//            let minutes = components.minute
-//            
-//            var str_Hour = "\(hour)"
-//            var str_Min = "\(minutes)"
-//            if hour < 10 {
-//                str_Hour = "0\(hour)"
-//            }
-//            if minutes < 10 {
-//                str_Min = "0\(minutes)"
-//            }
-//            
-//            label_Reading.text = "\(str_Hour):\(str_Min)"
         }
         self.selectionStyle = .None
         self.separatorInset = UIEdgeInsetsMake(0, 1200, 0, 0)
