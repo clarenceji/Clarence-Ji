@@ -163,7 +163,7 @@ class CJTableView2: UITableViewController {
             self.contentArray.insert((true, imageView1), atIndex: 2)
             
             let imageView2 = CJImageView(image: UIImage(named: "Edu_2")!)
-            self.contentArray.insert((true, imageView2), atIndex: 5)
+            self.contentArray.insert((true, imageView2), atIndex: 6)
         default:
             break
         }

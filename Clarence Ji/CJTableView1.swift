@@ -18,6 +18,10 @@ class CJTableView1: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if !NSUserDefaults.standardUserDefaults().boolForKey("AltimeterReadingReady") {
+            let timer = NSTimer(timeInterval: 1.0, target: self, selector: Selector("updateTime:"), userInfo: nil, repeats: true)
+            NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSRunLoopCommonModes)
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -136,6 +140,11 @@ class CJTableView1: UITableViewController {
     }
     
 
+    func updateTime(timer: NSTimer) {
+        if let barometerCell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 4, inSection: 0)) as? CJTableView1_Cell_Barometer {
+            barometerCell.timerTick(nil)
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.
