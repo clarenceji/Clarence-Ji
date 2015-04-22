@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="MyriadPro-Light.otf">
+            <string>MyriadPro-Light</string>
+            <string>MyriadPro-Light</string>
+        </mutableArray>
+        <mutableArray key="MyriadPro-Regular.otf">
+            <string>MyriadPro-Regular</string>
+            <string>MyriadPro-Regular</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CJProjectDetailPopupView" customModule="Clarence_Ji" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdA-8R-oyP">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="Vtj-f2-Vg6"/>
+                    </constraints>
+                </scrollView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TvF-66-0K0">
+                    <rect key="frame" x="8" y="8" width="584" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="kFP-ta-WhT"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="16"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0WE-X5-WTf">
+                    <rect key="frame" x="8" y="108" width="584" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="zNo-fh-XFp"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="MyriadPro-Light" family="Myriad Pro" pointSize="16"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RAl-el-hPE">
+                    <rect key="frame" x="300" y="149" width="1" height="401"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="1" id="r6S-2o-e6e"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eQ-v6-JPf">
+                    <rect key="frame" x="8" y="149" width="284" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="SXt-ur-9DN"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="16"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IAp-Rh-VKR">
+                    <rect key="frame" x="309" y="149" width="283" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="mXj-gc-add"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="MyriadPro-Light" family="Myriad Pro" pointSize="16"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="RAl-el-hPE" firstAttribute="top" secondItem="0eQ-v6-JPf" secondAttribute="bottom" constant="-25" id="1tP-f2-1ee"/>
+                <constraint firstItem="TvF-66-0K0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="4ET-Wp-eBD"/>
+                <constraint firstItem="IAp-Rh-VKR" firstAttribute="leading" secondItem="RAl-el-hPE" secondAttribute="trailing" constant="8" id="A4F-WV-xxm"/>
+                <constraint firstItem="TvF-66-0K0" firstAttribute="bottom" secondItem="fdA-8R-oyP" secondAttribute="bottom" constant="-3" id="Bx3-gl-geu"/>
+                <constraint firstItem="0eQ-v6-JPf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="G6I-2t-pbG"/>
+                <constraint firstItem="0WE-X5-WTf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="Hf4-P4-hIt"/>
+                <constraint firstItem="RAl-el-hPE" firstAttribute="top" secondItem="0WE-X5-WTf" secondAttribute="bottom" constant="20" id="I3O-H4-Aho"/>
+                <constraint firstItem="0WE-X5-WTf" firstAttribute="top" secondItem="fdA-8R-oyP" secondAttribute="bottom" constant="8" id="Z27-Cv-5h6"/>
+                <constraint firstItem="TvF-66-0K0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="cLD-5o-twU"/>
+                <constraint firstAttribute="trailing" secondItem="TvF-66-0K0" secondAttribute="trailing" constant="8" id="lLl-p6-YIT"/>
+                <constraint firstAttribute="bottom" secondItem="RAl-el-hPE" secondAttribute="bottom" constant="50" id="lsA-KD-Weh"/>
+                <constraint firstAttribute="centerX" secondItem="RAl-el-hPE" secondAttribute="centerX" constant="-0.5" id="m6j-eY-67Y"/>
+                <constraint firstAttribute="trailing" secondItem="IAp-Rh-VKR" secondAttribute="trailing" constant="8" id="mIf-ZE-6gi"/>
+                <constraint firstItem="0eQ-v6-JPf" firstAttribute="top" secondItem="RAl-el-hPE" secondAttribute="top" id="nvd-Rb-z0c"/>
+                <constraint firstItem="fdA-8R-oyP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="o4Z-s6-Cmf"/>
+                <constraint firstItem="RAl-el-hPE" firstAttribute="leading" secondItem="0eQ-v6-JPf" secondAttribute="trailing" constant="8" id="oEr-2a-u2l"/>
+                <constraint firstItem="fdA-8R-oyP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="rV4-OQ-aU6"/>
+                <constraint firstAttribute="trailing" secondItem="0WE-X5-WTf" secondAttribute="trailing" constant="8" id="rwy-7r-Unb"/>
+                <constraint firstAttribute="trailing" secondItem="fdA-8R-oyP" secondAttribute="trailing" id="wo7-gP-JJY"/>
+                <constraint firstItem="0eQ-v6-JPf" firstAttribute="top" secondItem="IAp-Rh-VKR" secondAttribute="top" id="yfm-We-z0P"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="Bx3-gl-geu"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="label_Description" destination="0WE-X5-WTf" id="nWO-FG-v8g"/>
+                <outlet property="label_Keys" destination="0eQ-v6-JPf" id="sZK-L8-0m8"/>
+                <outlet property="label_Title" destination="TvF-66-0K0" id="bYk-JR-Awh"/>
+                <outlet property="label_Values" destination="IAp-Rh-VKR" id="fRy-RO-CRR"/>
+                <outlet property="scrollView" destination="fdA-8R-oyP" id="4Qc-Z3-unx"/>
+                <outlet property="scrollViewHeightConstraint" destination="Vtj-f2-Vg6" id="mcF-F0-SEZ"/>
+            </connections>
+        </view>
+    </objects>
+</document>

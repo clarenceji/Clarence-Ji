@@ -4,6 +4,39 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
+        <!--View Controller1-->
+        <scene sceneID="2HL-4B-ICk">
+            <objects>
+                <viewController id="b9s-Wx-Sm7" customClass="ViewController1" customModule="Clarence_Ji" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Mwo-O2-ad6"/>
+                        <viewControllerLayoutGuide type="bottom" id="3ce-ge-bxm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cyc-qV-ByZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fwt-uD-ZAA">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Fwt-uD-ZAA" secondAttribute="trailing" id="8Cy-QQ-UsC"/>
+                            <constraint firstItem="Fwt-uD-ZAA" firstAttribute="top" secondItem="cyc-qV-ByZ" secondAttribute="top" id="JSV-8i-VlB"/>
+                            <constraint firstItem="Fwt-uD-ZAA" firstAttribute="bottom" secondItem="3ce-ge-bxm" secondAttribute="top" id="NBC-EM-057"/>
+                            <constraint firstItem="Fwt-uD-ZAA" firstAttribute="leading" secondItem="cyc-qV-ByZ" secondAttribute="leading" id="waf-ic-ces"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="view_" destination="Fwt-uD-ZAA" id="qwT-Gr-jHH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GGz-Id-728" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="279" y="-242"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>

@@ -1,0 +1,73 @@
+{
+    "TechCrunch Disrupt London 2014": {
+        "image": ["TC_1", "TC_2"],
+        "url": "http://challengepost.com/software/appilepsy-xnxj5",
+        "description": "Appilepsy - a mobile app that runs an intelligent algorithm in the background of your phone which analyses your phone's 3D accelerometer data in real-time to detect if you're having a convulsive epileptic seizure.",
+        "details": {
+            "Organizer": "TechCrunch",
+            "Award": "Second place \nMost creative use of Nexmo's API"
+        }
+    },
+    
+    "MLH Launch Hack 2014": {
+        "image": ["MLHLaunch_1", "MLHLaunch_2", "MLHLaunch_3"],
+        "url": "https://www.youtube.com/watch?v=36XkUd9Ayz0&list=PLPDgudJ_VDUeRyJbmyKzSgaljWjMlRorJ&index=34",
+        "description": "JoinPack - an iOS app for meeting new people during social events based on others’ public profile (e.g. LinkedIn, Facebook, etc.)",
+        "details": {
+            "Organizer": "Major League Hacking",
+            "Award": "Best use of Estimote Beacons"
+        }
+    },
+    
+    "EikonHack 2014": {
+        "image": ["Eikon_1", "Eikon_2", "Eikon_3"],
+        "url": "http://eikonhack.com/#media_n",
+        "description": "PerFeed - a mobile app for showing news feed more personally.",
+        "details": {
+            "Organizer": "Thomson Reuters Eikon",
+            "Award": "Third place"
+        }
+        
+    },
+    
+    "HackLondon 2015": {
+        "image": ["HL_1", "HL_2", "HL_3"],
+        "url": "http://hacklondon.org",
+        "description": "HackLondon was my first hackthon where I attended as an organizer. Due to the limitation of audio and visual facilities in the auditorium, I made an app that was used to mirror what the camera captured to the display (HackCam).",
+        "details": {
+            "Organizer": "King's College London Tech Society \nUniversity College London TechSoc \nUniversity College London Entrepreneurs",
+            "Size": "Approximately 200 students",
+            "Main Role": "Promotion Designer"
+        }
+    },
+    
+    "MLH Landing Hack 2015": {
+        "image": ["MLHLanding_1", "MLHLanding_2", "MLHLanding_3"],
+        "url": "http://landing.mlh.io",
+        "description": "It was a great chance for me to meet new people, to learn new stuff, and to acquire more skills on running a hackathon.",
+        "details": {
+            "Organizer": "Major League Hacking",
+            "Main Role": "Volunteer"
+        }
+    },
+    
+    "Appilepsy": {
+        "image": ["Appilepsy_1", "Appilepsy_2", "Appilepsy_3"],
+        "url": "http://appilepsy.org",
+        "description": "Appilepsy - a mobile app that runs an intelligent algorithm in the background of your phone which analyses your phone's 3D accelerometer data in real-time to detect if you're having a convulsive epileptic seizure.",
+        "details": {
+            "Programming Language": "Objective-C, Swift, C",
+            "APIs Used": "HealthKit, Esri ArcGIS, Nexmo"
+        }
+    },
+    
+    "HackCam": {
+        "image": ["Appilepsy_1", "Appilepsy_2", "Appilepsy_3"],
+        "url": "http://appilepsy.org",
+        "description": "Appilepsy - a mobile app that runs an intelligent algorithm in the background of your phone which analyses your phone's 3D accelerometer data in real-time to detect if you're having a convulsive epileptic seizure.",
+        "details": {
+            "Programming Language": "Objective-C, Swift, C",
+            "APIs Used": "HealthKit, Esri ArcGIS, Nexmo"
+        }
+    },
+}

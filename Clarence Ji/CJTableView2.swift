@@ -34,6 +34,7 @@ class CJTableView2: UITableViewController {
             CJNavView1.applyNavigationBarStyleDark(self)
             self.view_Header.backgroundColor = UIColor.blackColor()
         }
+
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -51,16 +52,14 @@ class CJTableView2: UITableViewController {
         self.view_Header.userInteractionEnabled = false
     }
     
-    func btn_GoBack_Clicked(btn: UIButton) {
-        println("clicked")
-    }
-    
     let btn_GoBack = CJBackButton(frame: CGRectMake(16, 28, 50, 20))
     override func viewWillAppear(animated: Bool) {
         setUpHeader(self.headerCell)
         
         btn_GoBack.addAction(self)
         self.navigationController?.view.insertSubview(btn_GoBack, belowSubview: self.navigationController!.navigationBar)
+        
+        self.presentHoverView()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -164,6 +163,11 @@ class CJTableView2: UITableViewController {
             
             let imageView2 = CJImageView(image: UIImage(named: "Edu_2")!)
             self.contentArray.insert((true, imageView2), atIndex: 6)
+            
+        case 2:
+            let path = NSBundle.mainBundle().pathForResource("Text_Hacker", ofType: "txt")
+            generateAttrString(path)
+            
         default:
             break
         }
@@ -185,7 +189,6 @@ class CJTableView2: UITableViewController {
                 ]
                 var attrString = NSMutableAttributedString(string: string, attributes: attributes)
                 if string[string.startIndex] == "•" {
-                    println(string)
                     string.removeAtIndex(string.startIndex)
                     attributes[NSFontAttributeName] = UIFont(name: "MyriadPro-Regular", size: 17.0)!
                     
@@ -216,15 +219,6 @@ class CJTableView2: UITableViewController {
         return size.height
     }
     
-
-//    func resizeImage(image: UIImage) -> UIImage {
-//        let screenWidth = UIScreen.mainScreen().bounds.width
-//        let imageRatio = image.size.height / image.size.width
-//        let imageViewHeight = screenWidth * imageRatio
-//        let size = CGSizeMake(screenWidth, imageViewHeight)
-//        
-//        
-//    }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if contentArray[indexPath.row].0 {
@@ -233,50 +227,18 @@ class CJTableView2: UITableViewController {
             return UITableViewAutomaticDimension
         }
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
+    
+    func presentHoverView() {
+        let hoverView = NSBundle.mainBundle().loadNibNamed("CJProjectDetailPopupView", owner: self, options: nil)[0] as! CJProjectDetailPopupView
+        hoverView.addContents("TechCrunch Disrupt London 2014")
+        self.view.addSubview(hoverView)
+        UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.5, options: .CurveEaseInOut, animations: {
+            hoverView.center = self.view.center
+            self.btn_GoBack.alpha = 0
+            }) { (complete) -> Void in
+                self.tableView.scrollEnabled = false
+        }
     }
-    */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

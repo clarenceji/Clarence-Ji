@@ -33,6 +33,16 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate {
         }
         imageView_Background.image = UIImage(named: launchImageName)
         
+        let currentDate = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute, fromDate:  NSDate())
+        let currentHour = components.hour
+        if currentHour >= 18 || currentHour <= 6 {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "DarkMode")
+        } else {
+            NSUserDefaults.standardUserDefaults().setBool(false, forKey: "DarkMode")
+        }
+        
     }
 
     override func viewDidAppear(animated: Bool) {

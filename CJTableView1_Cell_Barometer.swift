@@ -25,8 +25,6 @@ class CJTableView1_Cell_Barometer: UITableViewCell {
         } else {
             timerTick(nil)
             label_Title.text = "Your Local Time"
-//            let timer = NSTimer(timeInterval: 1.0, target: self, selector: Selector("timerTick:"), userInfo: nil, repeats: true)
-//            NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSRunLoopCommonModes)
         }
         self.selectionStyle = .None
         self.separatorInset = UIEdgeInsetsMake(0, 1200, 0, 0)
