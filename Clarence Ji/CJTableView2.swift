@@ -19,6 +19,9 @@ class CJTableView2: UITableViewController {
     
     var textViews = [NSIndexPath: UITextView]()
     
+    var clickableCells = [NSIndexPath]()
+    var renderedCells = [UITableViewCell]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.handleTxtFile()
@@ -59,7 +62,6 @@ class CJTableView2: UITableViewController {
         btn_GoBack.addAction(self)
         self.navigationController?.view.insertSubview(btn_GoBack, belowSubview: self.navigationController!.navigationBar)
         
-        self.presentHoverView()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -87,42 +89,72 @@ class CJTableView2: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        switch self.contentArray[indexPath.row].0 {
-        case true:
-            // Bool is true - element in array is an image
-            let cell = NSBundle.mainBundle().loadNibNamed("CJTableView2_Cell", owner: self, options: nil)[1] as! CJTableView2_ImageCell
-            cell.selectionStyle = .None
-            let newImage = self.contentArray[indexPath.row].1 as! UIImageView
-          
-            cell.image_View.addSubview(newImage)
-            cell.image_View.frame = newImage.bounds
-            
-            if NSUserDefaults.standardUserDefaults().boolForKey("DarkMode") {
-                cell.backgroundColor = .blackColor()
+        
+        if renderedCells.count > indexPath.row {
+            println("rendered")
+            return renderedCells[indexPath.row]
+        } else {
+            switch self.contentArray[indexPath.row].0 {
+            case true:
+                // Bool is true - element in array is an image
+                let cell = NSBundle.mainBundle().loadNibNamed("CJTableView2_Cell", owner: self, options: nil)[1] as! CJTableView2_ImageCell
+                cell.selectionStyle = .None
+                cell.userInteractionEnabled = false
+                let newImage = self.contentArray[indexPath.row].1 as! UIImageView
+                
+                cell.image_View.addSubview(newImage)
+                cell.image_View.frame = newImage.bounds
+                
+                if NSUserDefaults.standardUserDefaults().boolForKey("DarkMode") {
+                    cell.backgroundColor = .blackColor()
+                }
+                
+                renderedCells.append(cell)
+                
+                return cell
+                
+            case false:
+                // Bool is false - element in array is not an image
+                let cell = NSBundle.mainBundle().loadNibNamed("CJTableView2_Cell", owner: self, options: nil)[0] as! CJTableView2_Cell
+                cell.selectionStyle = .None
+                cell.userInteractionEnabled = false
+                self.textViews[indexPath] = cell.label_Main
+                // Configure the cell
+                let attrString = self.contentArray[indexPath.row].1 as! NSMutableAttributedString
+                if attrString.string[attrString.string.startIndex] == "∞" {
+                    attrString.deleteCharactersInRange(NSMakeRange(0, 1))
+                    clickableCells.append(indexPath)
+                }
+                for iP in clickableCells {
+                    if iP == indexPath {
+                        cell.selectionStyle = .Default
+                        cell.accessoryType = .DisclosureIndicator
+                        cell.label_Main.userInteractionEnabled = false
+                        cell.userInteractionEnabled = true
+                    }
+                }
+                cell.label_Main.attributedText = attrString
+                if NSUserDefaults.standardUserDefaults().boolForKey("DarkMode") {
+                    cell.backgroundColor = .blackColor()
+                    cell.label_Main.textColor = .whiteColor()
+                }
+                
+                renderedCells.append(cell)
+                
+                return cell
+            default:
+                break
+                
             }
-            
-            return cell
-            
-        case false:
-            // Bool is false - element in array is not an image
-            let cell = NSBundle.mainBundle().loadNibNamed("CJTableView2_Cell", owner: self, options: nil)[0] as! CJTableView2_Cell
-            cell.selectionStyle = .None
-            self.textViews[indexPath] = cell.label_Main
-            // Configure the cell
-            cell.label_Main.attributedText = self.contentArray[indexPath.row].1 as! NSAttributedString
-            println(indexPath.row)
-            if NSUserDefaults.standardUserDefaults().boolForKey("DarkMode") {
-                cell.backgroundColor = .blackColor()
-                cell.label_Main.textColor = .whiteColor()
-            }
-            
-            return cell
-        default:
-            break
-            
         }
         
         return UITableViewCell()
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as! CJTableView2_Cell
+        cell.selected = false
+        self.presentHoverView(cell.label_Main.text)
     }
     
     override func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -175,7 +207,7 @@ class CJTableView2: UITableViewController {
     
     func generateAttrString(path: String?) {
         if let content = String(contentsOfFile: path!, encoding: NSUTF8StringEncoding, error: nil) {
-            
+            println(content)
             var array = content.componentsSeparatedByString("\n¶")
             let attrStyle = NSMutableParagraphStyle()
             attrStyle.lineSpacing = 8
@@ -228,12 +260,19 @@ class CJTableView2: UITableViewController {
         }
     }
     
-    func presentHoverView() {
+    func presentHoverView(title: String) {
+        println("presentHoverView")
         let hoverView = NSBundle.mainBundle().loadNibNamed("CJProjectDetailPopupView", owner: self, options: nil)[0] as! CJProjectDetailPopupView
-        hoverView.addContents("TechCrunch Disrupt London 2014")
-        self.view.addSubview(hoverView)
+        hoverView.prevTableVC = self
+        hoverView.addContents(title)
+        self.navigationController!.view.addSubview(hoverView)
         UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.5, options: .CurveEaseInOut, animations: {
-            hoverView.center = self.view.center
+            self.navigationController!.view.transform = CGAffineTransformMakeScale(0.9, 0.9)
+//            hoverView.transform = CGAffineTransformMakeScale(1.11111, 1.11111)
+            self.navigationController!.view.layer.cornerRadius = 8.0
+            self.navigationController!.view.clipsToBounds = true
+            
+            hoverView.center = CGPointMake(UIScreen.mainScreen().bounds.width / 2, UIScreen.mainScreen().bounds.height / 2)
             self.btn_GoBack.alpha = 0
             }) { (complete) -> Void in
                 self.tableView.scrollEnabled = false

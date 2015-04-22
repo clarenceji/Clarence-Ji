@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CJProjectDetailPopupView: UIView, UIScrollViewDelegate {
+class CJProjectDetailPopupView: UIView, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource {
 
     /*
     // Only override drawRect: if you perform custom drawing.
@@ -18,23 +18,27 @@ class CJProjectDetailPopupView: UIView, UIScrollViewDelegate {
     }
     */
     
-    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var scrollView_Images: UIScrollView!
     @IBOutlet var scrollViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet var label_Title: UILabel!
     @IBOutlet var label_Description: UILabel!
-    @IBOutlet var label_Keys: UILabel!
-    @IBOutlet var label_Values: UILabel!
+    @IBOutlet var tableView_Details: UITableView!
+    
+    var prevTableVC: CJTableView2!
     
     var btn_Details: UIButton!
     var btn_Done: UIButton!
     
     var urlString: String!
     var dict_ProjectInfo: [String: AnyObject]!
-    var dict_CurrentProject: [String: AnyObject]!
+    var dict_CurrentProject: [String: AnyObject]?
+    
+    var array_Keys: [String]?
+    var array_Values: [String]?
     
     let screen = UIScreen.mainScreen().bounds
-    let selfWidth = UIScreen.mainScreen().bounds.width * 0.9
-    let selfHeight = UIScreen.mainScreen().bounds.height * 0.85
+    let selfWidth = UIScreen.mainScreen().bounds.width
+    let selfHeight = UIScreen.mainScreen().bounds.height
     var numberOfImages = 3
     var pageControl: UIPageControl!
     
@@ -45,7 +49,6 @@ class CJProjectDetailPopupView: UIView, UIScrollViewDelegate {
     }
     
     override func awakeFromNib() {
-        println("init run")
         // screen.height + selfHeight: Prepare for animation
         let selfFrame = CGRectMake(0, screen.height + selfHeight, selfWidth, selfHeight)
         self.frame = selfFrame
@@ -67,18 +70,16 @@ class CJProjectDetailPopupView: UIView, UIScrollViewDelegate {
         self.layer.cornerRadius = 8.0
         self.clipsToBounds = true
         
-        self.scrollView.delegate = self
-        self.scrollView.pagingEnabled = true
+        self.scrollView_Images.delegate = self
+        self.scrollView_Images.pagingEnabled = true
         // Image takes up 1/3 of whole view
         self.scrollViewHeightConstraint.constant = selfHeight / 3
         self.layoutIfNeeded()
         
-        // Add Images
-//        self.addImages()
-        
-        // Set Title
-//        self.label_Title.text = "TechCrunch Discrupt 2014"
-
+        self.tableView_Details.delegate = self
+        self.tableView_Details.dataSource = self
+        self.tableView_Details.estimatedRowHeight = 30.0
+        self.tableView_Details.rowHeight = UITableViewAutomaticDimension
         
         
         // Read & save json file
@@ -86,31 +87,27 @@ class CJProjectDetailPopupView: UIView, UIScrollViewDelegate {
     }
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        println("scrollViewDidEndDecelerating")
         var offsetLooping = 1
         var page = (scrollView.contentOffset.x - selfWidth / CGFloat(2)) / selfWidth + CGFloat(offsetLooping)
         pageControl.currentPage = Int(page) % numberOfImages
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        if scrollView.contentOffset.y != 0 {
-            scrollView.contentOffset = CGPointMake(scrollView.contentOffset.x, 0)
+        if scrollView_Images.contentOffset.y != 0 {
+            scrollView_Images.contentOffset = CGPointMake(scrollView.contentOffset.x, 0)
         }
     }
     
     override func removeFromSuperview() {
         UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.5, options: .CurveEaseInOut, animations: {
             self.center = CGPointMake(self.center.x, self.selfHeight * 2)
-            
-            if let superView = self.superview as? UITableView {
-                (superView.nextResponder() as! CJTableView2).btn_GoBack.alpha = 1.0
-            }
-            
+            self.prevTableVC.btn_GoBack.alpha = 1.0
+            self.alpha = 0
+            self.superview!.transform = CGAffineTransformMakeScale(1, 1)
+            self.superview!.layer.cornerRadius = 0
         }) { (complete) -> Void in
-            if let superView = self.superview as? UITableView {
-                superView.scrollEnabled = true
-                super.removeFromSuperview()
-            }
+            self.prevTableVC.tableView.scrollEnabled = true
+            super.removeFromSuperview()
         }
     }
     
@@ -123,21 +120,20 @@ class CJProjectDetailPopupView: UIView, UIScrollViewDelegate {
                 self.frame.size.width * CGFloat(i),
                 0,
                 self.frame.size.width,
-                scrollView.frame.size.height
+                scrollView_Images.frame.size.height
             )
             
             let imageView = UIImageView(frame: frame)
-            println(imageView.frame)
             imageView.contentMode = .ScaleAspectFill
             imageView.image = UIImage(named: fileNames[i])!
             imageView.clipsToBounds = true
-            scrollView.addSubview(imageView)
+            scrollView_Images.addSubview(imageView)
         }
         
-        scrollView.contentSize = CGSizeMake(selfWidth * CGFloat(numberOfImages), selfHeight / 3);
+        scrollView_Images.contentSize = CGSizeMake(selfWidth * CGFloat(numberOfImages), selfHeight / 3);
         
         // Add PageControl
-        pageControl = UIPageControl(frame: CGRectMake(0, scrollView.frame.size.height - 30, selfWidth, 20))
+        pageControl = UIPageControl(frame: CGRectMake(0, scrollView_Images.frame.size.height + scrollView_Images.frame.origin.y - 20, selfWidth, 20))
         pageControl.numberOfPages = numberOfImages
         self.addSubview(pageControl)
     }
@@ -173,7 +169,6 @@ class CJProjectDetailPopupView: UIView, UIScrollViewDelegate {
     
     func jsonToDict() -> [String: AnyObject] {
         let path = NSBundle.mainBundle().pathForResource("Project_Info", ofType: "json")
-        println(path)
         if let data = NSData(contentsOfFile: path!, options: .DataReadingMappedIfSafe, error: nil) {
             var error: NSError?
             let json = NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers, error: &error) as! [String: AnyObject]
@@ -184,26 +179,72 @@ class CJProjectDetailPopupView: UIView, UIScrollViewDelegate {
     }
     
     func addContents(title: String) {
-        println(dict_ProjectInfo)
-        self.dict_CurrentProject = dict_ProjectInfo[title] as! [String: AnyObject]
+        self.dict_CurrentProject = dict_ProjectInfo[title] as? [String: AnyObject]
         label_Title.text = title
         
-        // 1 - Images
-        addImages(dict_CurrentProject["image"] as! [String])
-        // 2 - URL
-        self.urlString = dict_CurrentProject["url"] as! String
-        // 3 - Description
-        self.label_Description.text = dict_CurrentProject["description"] as? String
-        // 4 - Details
-        var string_Keys = ""
-        var string_Values = ""
-        for (key, value) in (dict_CurrentProject["details"] as! [String: String]) {
-            string_Keys += "\(key)\n"
-            string_Values += "\(value)\n"
+        if let currentDict = self.dict_CurrentProject {
+            // 1 - Images
+            addImages(currentDict["image"] as! [String])
+            // 2 - URL
+            self.urlString = currentDict["url"] as! String
+            // 3 - Description
+            var string = currentDict["description"] as? String
+            let attrStyle = NSMutableParagraphStyle()
+            attrStyle.lineSpacing = 7
+            var attributes = [
+                NSParagraphStyleAttributeName: attrStyle
+            ]
+            var attrString = NSMutableAttributedString(string: string!, attributes: attributes)
+            self.label_Description.attributedText = attrString
+            self.label_Description.textAlignment = .Center
+            // 4 - Details
+            array_Keys = [String]()
+            array_Values = [String]()
+            for (key, value) in (currentDict["details"] as! [String: String]) {
+                array_Keys?.append(key)
+                array_Values?.append(value)
+            }
         }
-        self.label_Keys.text = string_Keys
-        self.label_Values.text = string_Values
         
+        self.tableView_Details.reloadData()
+        
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if array_Keys != nil {
+            return array_Keys!.count
+        }
+        return 0
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = NSBundle.mainBundle().loadNibNamed("CJProjectDetailPopupView", owner: self, options: nil)[1] as! CJProjectDetailPopupView_Cell
+        cell.selectionStyle = .None
+        
+        let attrStyle = NSMutableParagraphStyle()
+        attrStyle.lineSpacing = 7
+        var attributes = [
+            NSParagraphStyleAttributeName: attrStyle
+        ]
+        
+        if array_Keys != nil && array_Values != nil {
+            var attrString_Key = NSMutableAttributedString(string: array_Keys![indexPath.row], attributes: attributes)
+            var attrString_Value = NSMutableAttributedString(string: array_Values![indexPath.row], attributes: attributes)
+            
+            cell.label_Key.attributedText = attrString_Key
+            cell.label_Value.attributedText = attrString_Value
+            
+            cell.label_Key.textAlignment = .Right
+            
+            cell.label_Key_ConstraintWidth.constant = self.frame.size.width * 0.32
+            cell.layoutIfNeeded()
+        }
+        
+        return cell
     }
     
 }

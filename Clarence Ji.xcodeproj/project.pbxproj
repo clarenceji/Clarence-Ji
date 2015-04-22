@@ -12,6 +12,7 @@
 		11085A581AE6C28C00AF7F8E /* CJProjectDetailPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11085A571AE6C28C00AF7F8E /* CJProjectDetailPopupView.xib */; };
 		11085A5A1AE6EC1A00AF7F8E /* ViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11085A591AE6EC1A00AF7F8E /* ViewController1.swift */; };
 		11085A601AE7226D00AF7F8E /* Project_Info.json in Resources */ = {isa = PBXBuildFile; fileRef = 11085A5F1AE7226D00AF7F8E /* Project_Info.json */; };
+		11085A621AE7DE6100AF7F8E /* CJProjectDetailPopupView_Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11085A611AE7DE6100AF7F8E /* CJProjectDetailPopupView_Cell.swift */; };
 		1114F17A1A9283BD00D73E21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1114F1791A9283BD00D73E21 /* AppDelegate.swift */; };
 		1114F17C1A9283BD00D73E21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1114F17B1A9283BD00D73E21 /* ViewController.swift */; };
 		1114F17F1A9283BD00D73E21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1114F17D1A9283BD00D73E21 /* Main.storyboard */; };
@@ -56,6 +57,7 @@
 		11085A571AE6C28C00AF7F8E /* CJProjectDetailPopupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CJProjectDetailPopupView.xib; sourceTree = "<group>"; };
 		11085A591AE6EC1A00AF7F8E /* ViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController1.swift; sourceTree = "<group>"; };
 		11085A5F1AE7226D00AF7F8E /* Project_Info.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Project_Info.json; sourceTree = "<group>"; };
+		11085A611AE7DE6100AF7F8E /* CJProjectDetailPopupView_Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CJProjectDetailPopupView_Cell.swift; sourceTree = "<group>"; };
 		1114F1741A9283BD00D73E21 /* Clarence Ji.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Clarence Ji.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1114F1781A9283BD00D73E21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1114F1791A9283BD00D73E21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				11A37DDD1AE56094006B1F80 /* CJImageView.swift */,
 				11085A551AE6C27C00AF7F8E /* CJProjectDetailPopupView.swift */,
 				11085A571AE6C28C00AF7F8E /* CJProjectDetailPopupView.xib */,
+				11085A611AE7DE6100AF7F8E /* CJProjectDetailPopupView_Cell.swift */,
 			);
 			name = "UI Components";
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11085A621AE7DE6100AF7F8E /* CJProjectDetailPopupView_Cell.swift in Sources */,
 				11085A5A1AE6EC1A00AF7F8E /* ViewController1.swift in Sources */,
 				11ECE1391AE00DC2005A1AF6 /* CJTableView3_Cell.swift in Sources */,
 				1114F17C1A9283BD00D73E21 /* ViewController.swift in Sources */,

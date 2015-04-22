@@ -11,3 +11,4 @@ As a computer science student, I have learned ondata structure, computer systems
 ¶Also, due to the success of some apps that we created at hackathons, my team decided to continue working on those as our non-academic development projects:
 ¶∞Appilepsy
 ¶∞HackCam
+¶
