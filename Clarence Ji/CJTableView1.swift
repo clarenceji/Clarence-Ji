@@ -39,7 +39,6 @@ class CJTableView1: UITableViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
@@ -67,9 +66,7 @@ class CJTableView1: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        println("cellForRowAtIndexPath")
         if NSUserDefaults.standardUserDefaults().boolForKey("DarkMode") != prevDarkMode {
-            println("nope")
             cellArray = [nil, nil, nil, nil, nil]
         }
         
@@ -128,12 +125,11 @@ class CJTableView1: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println("Selected")
         if indexPath.row != 4 {
             for index in 0..<5 {
                 tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0))?.alpha = 0
             }
-            tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Top, animated: true)
+            tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Top, animated: true)
         }
         
     }

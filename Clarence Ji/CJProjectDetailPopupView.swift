@@ -9,14 +9,6 @@
 import UIKit
 
 class CJProjectDetailPopupView: UIView, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource {
-
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
     
     @IBOutlet var scrollView_Images: UIScrollView!
     @IBOutlet var scrollViewHeightConstraint: NSLayoutConstraint!
@@ -87,9 +79,11 @@ class CJProjectDetailPopupView: UIView, UIScrollViewDelegate, UITableViewDelegat
     }
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        var offsetLooping = 1
-        var page = (scrollView.contentOffset.x - selfWidth / CGFloat(2)) / selfWidth + CGFloat(offsetLooping)
-        pageControl.currentPage = Int(page) % numberOfImages
+        if scrollView == self.scrollView_Images {
+            var offsetLooping = 1
+            var page = (scrollView.contentOffset.x - selfWidth / CGFloat(2)) / selfWidth + CGFloat(offsetLooping)
+            pageControl.currentPage = Int(page) % numberOfImages
+        }
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {

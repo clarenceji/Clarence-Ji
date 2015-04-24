@@ -23,7 +23,6 @@ class CJViewTransition: NSObject, UIViewControllerAnimatedTransitioning {
         var containerView: UIView = transitionContext.containerView()
         containerView.insertSubview(toViewController.view, belowSubview: fromViewController.view)
         
-//        toViewController.view.alpha = 1.0
         toViewController.view.transform = CGAffineTransformMakeScale(0.8, 0.8)
         toViewController.view.center.x += UIScreen.mainScreen().bounds.width
         
@@ -35,7 +34,6 @@ class CJViewTransition: NSObject, UIViewControllerAnimatedTransitioning {
                 
                 
                 UIView.animateWithDuration(0.8, animations: {
-//                    toViewController.view.alpha = 1.0
                     toViewController.view.center.x -= UIScreen.mainScreen().bounds.width
                                         toViewController.view.transform = CGAffineTransformMakeScale(1.0, 1.0)
                     }, completion: nil)

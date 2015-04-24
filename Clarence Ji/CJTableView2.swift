@@ -39,7 +39,6 @@ class CJTableView2: UITableViewController {
         }
         
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-//        self.navigationController?.hidesBarsOnSwipe = true
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -77,19 +76,13 @@ class CJTableView2: UITableViewController {
     }
     
     override func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-//        let offset = scrollView.contentOffset
-//        
-//        if offset.y > 0 && navigationController!.navigationBarHidden {
-//            self.navigationController!.setNavigationBarHidden(false, animated: true)
-//        }
-        
         let offset = scrollView.contentOffset
         let imageHeight = self.headerCell.bounds.height
         
-        if imageHeight - offset.y < 80 && navigationController!.navigationBarHidden {
-            self.navigationController!.setNavigationBarHidden(false, animated: true)
-        } else if imageHeight - offset.y >= 80 && !navigationController!.navigationBarHidden {
-            self.navigationController!.setNavigationBarHidden(true, animated: true)
+        if imageHeight - offset.y < 80 && navigationController?.navigationBarHidden == true {
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+        } else if imageHeight - offset.y >= 80 && navigationController?.navigationBarHidden == false {
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
         }
     }
     
@@ -97,13 +90,13 @@ class CJTableView2: UITableViewController {
         let offset = scrollView.contentOffset
         let imageHeight = self.headerCell.bounds.height
         
-        if imageHeight - offset.y >= 80 && !navigationController!.navigationBarHidden {
-            self.navigationController!.setNavigationBarHidden(true, animated: true)
+        if imageHeight - offset.y >= 80 && navigationController?.navigationBarHidden == false {
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
         }
     }
     
     override func scrollViewDidScrollToTop(scrollView: UIScrollView) {
-        self.navigationController!.setNavigationBarHidden(true, animated: true)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
 
     // MARK: - Table view data source
@@ -228,7 +221,6 @@ class CJTableView2: UITableViewController {
     
     func generateAttrString(path: String?) {
         if let content = String(contentsOfFile: path!, encoding: NSUTF8StringEncoding, error: nil) {
-            println(content)
             var array = content.componentsSeparatedByString("\n¶")
             let attrStyle = NSMutableParagraphStyle()
             attrStyle.lineSpacing = 8

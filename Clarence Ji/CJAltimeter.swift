@@ -16,9 +16,7 @@ class CJAltimeter {
     var pressure: Float!
     
     func getPressure(completion: (success: Bool, reading: Float?) -> Void) {
-        println("Class")
         if CMAltimeter.isRelativeAltitudeAvailable() {
-            println("Altimeter Available")
             altimeter.startRelativeAltitudeUpdatesToQueue(NSOperationQueue.currentQueue(), withHandler: { (altdata: CMAltitudeData!, error: NSError!) -> Void in
                 self.pressure = altdata.pressure.floatValue
                 self.altimeter.stopRelativeAltitudeUpdates()

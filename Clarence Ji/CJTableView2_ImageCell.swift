@@ -14,8 +14,6 @@ class CJTableView2_ImageCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-//        image_View.contentMode = .ScaleAspectFill
     }
     
     func resize(image: UIImage!) {
@@ -23,7 +21,6 @@ class CJTableView2_ImageCell: UITableViewCell {
         let imageRatio = image.size.height / image.size.width
         let imageViewHeight = screenWidth * imageRatio
         
-        println("width: \(screenWidth), height: \(imageViewHeight)")
         self.image_View.image = image
         self.image_View.frame = CGRectMake(0, 0, screenWidth, imageViewHeight)
         self.image_View.bounds = CGRectMake(0, 0, screenWidth, imageViewHeight)
@@ -33,8 +30,6 @@ class CJTableView2_ImageCell: UITableViewCell {
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }

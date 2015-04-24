@@ -55,7 +55,6 @@ class CJBackButton: UIButton, UIGestureRecognizerDelegate {
     var prevTouchLocation: CGPoint!
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        println("touchesBegan")
         prevTouchLocation = (touches.first! as! UITouch).locationInView(self)
         UIView.animateWithDuration(0.2, animations: {
             self.blackLayer.alpha = 1.0

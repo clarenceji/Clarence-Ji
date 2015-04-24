@@ -64,14 +64,11 @@ class CJTableView3_Cell: UITableViewCell, MFMailComposeViewControllerDelegate {
     }
 
     @IBAction func switch_DarkMode_Triggered(sender: AnyObject) {
-        println("switched to \(switch_DarkMode.on)")
         setDarkModeManually(switch_DarkMode.on)
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func getCellHeight() -> CGFloat {
@@ -102,7 +99,6 @@ class CJTableView3_Cell: UITableViewCell, MFMailComposeViewControllerDelegate {
             }
         })
         if tableView != nil {
-            println("tableView reloaded")
             tableView.tableView.reloadData()
         }
     }

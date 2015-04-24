@@ -36,8 +36,6 @@ class CJTableView1_Cell: UITableViewCell, UIGestureRecognizerDelegate {
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func animateBlackLayer() {
@@ -78,34 +76,16 @@ class CJTableView1_Cell: UITableViewCell, UIGestureRecognizerDelegate {
     }
     
     func cellTapped(recog_Tap: UITapGestureRecognizer) {
-        println("cellTapped")
         if NSUserDefaults.standardUserDefaults().boolForKey("DarkMode") {
             tableView.view.backgroundColor = UIColor.blackColor()
         }
-//        self.tableView.navigationController?.setNavigationBarHidden(false, animated: true)
-//        for index in 0..<5 {
-////            if index != self.index {
-//                let cell = tableView.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0))
-////                cell?.backgroundColor = UIColor.clearColor()
-//                UIView.animateWithDuration(0.4, animations: {
-//                    cell?.alpha = 0
-//                })
-////            }
-//        }
+        
+        self.hideBlackLayer()
+        
         let detailView = self.tableView.storyboard!.instantiateViewControllerWithIdentifier("CJTableView2") as! CJTableView2
         detailView.headerCell(self)
         detailView.indexFromPrevView = index
         self.tableView.navigationController?.pushViewController(detailView, animated: true)
-//        UIView.animateWithDuration(0.5, animations: {
-//            self.frame = CGRectMake(0, 0, self.frame.width, self.frame.height)
-//            self.separatorInset = UIEdgeInsetsMake(0, 1200, 0, 0)
-//            self.alpha = 0
-//        }) { (completed: Bool) -> Void in
-////            let detailView = self.tableView.storyboard!.instantiateViewControllerWithIdentifier("CJTableView2") as! CJTableView2
-////            detailView.setHeaderTableCell(self)
-////            self.tableView.navigationController?.pushViewController(detailView, animated: true)
-//            
-//        }
     }
 
 }

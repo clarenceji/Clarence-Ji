@@ -33,7 +33,6 @@ class CJTableView1_Cell_Barometer: UITableViewCell {
     let dateFormatter = NSDateFormatter()
     
     func timerTick(timer: NSTimer?) {
-        println("timerTick!")
         let now = NSDate()
         dateFormatter.dateFormat = "HH:mm:ss"
         dispatch_async(dispatch_get_main_queue(), {
@@ -44,8 +43,6 @@ class CJTableView1_Cell_Barometer: UITableViewCell {
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func setDarkMode() {
