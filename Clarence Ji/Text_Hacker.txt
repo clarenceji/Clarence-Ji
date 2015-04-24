@@ -1,5 +1,5 @@
-As a computer science student, I have learned ondata structure, computer systems, logic, operating system, concurrency, etc. As a 'hacker', I have acquired programming languages including Java and Swift.
-¶Wait, 'hacker'? I mean the hackathon hacker. There are more and more hackathons in UK these years and I am proud to be a part of an award-winning hackathon team.
+As a computer science student, I have learned on data structure, computer systems, logic, operating system, concurrency, etc. As a 'hacker', I have acquired programming languages including Java and Swift.
+¶Wait, 'hacker'? I mean the hackathon hacker. There are more and more hackathons in UK these years and I am proud to be a part of an award-winning hackathon team. By the way, I also put a lot of my efforts on the design and user experience of my developement projects.
 
 ¶•List of hackathons attended as a hacker:
 ¶∞TechCrunch Disrupt London 2014
@@ -8,7 +8,7 @@ As a computer science student, I have learned ondata structure, computer systems
 ¶•List of hackathons attended as an organizer or as a volunteer:
 ¶∞HackLondon 2015
 ¶∞MLH Landing Hack 2015
-¶Also, due to the success of some apps that we created at hackathons, my team decided to continue working on those as our non-academic development projects:
+¶Also, since we have several successful apps built on hackathons, my team decided to continue working on those as our non-academic development projects:
 ¶∞Appilepsy
 ¶∞HackCam
 ¶

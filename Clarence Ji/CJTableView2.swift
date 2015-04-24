@@ -37,7 +37,9 @@ class CJTableView2: UITableViewController {
             CJNavView1.applyNavigationBarStyleDark(self)
             self.view_Header.backgroundColor = UIColor.blackColor()
         }
-
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+//        self.navigationController?.hidesBarsOnSwipe = true
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -62,6 +64,8 @@ class CJTableView2: UITableViewController {
         btn_GoBack.addAction(self)
         self.navigationController?.view.insertSubview(btn_GoBack, belowSubview: self.navigationController!.navigationBar)
         
+        navigationController!.setNavigationBarHidden(true, animated: true)
+        self.title = (headerCell as! CJTableView1_Cell).label_Title.text
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -70,28 +74,58 @@ class CJTableView2: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    override func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+//        let offset = scrollView.contentOffset
+//        
+//        if offset.y > 0 && navigationController!.navigationBarHidden {
+//            self.navigationController!.setNavigationBarHidden(false, animated: true)
+//        }
+        
+        let offset = scrollView.contentOffset
+        let imageHeight = self.headerCell.bounds.height
+        
+        if imageHeight - offset.y < 80 && navigationController!.navigationBarHidden {
+            self.navigationController!.setNavigationBarHidden(false, animated: true)
+        } else if imageHeight - offset.y >= 80 && !navigationController!.navigationBarHidden {
+            self.navigationController!.setNavigationBarHidden(true, animated: true)
+        }
+    }
+    
+    override func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset
+        let imageHeight = self.headerCell.bounds.height
+        
+        if imageHeight - offset.y >= 80 && !navigationController!.navigationBarHidden {
+            self.navigationController!.setNavigationBarHidden(true, animated: true)
+        }
+    }
+    
+    override func scrollViewDidScrollToTop(scrollView: UIScrollView) {
+        self.navigationController!.setNavigationBarHidden(true, animated: true)
     }
 
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
         // Return the number of sections.
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
         // Return the number of rows in the section.
         return contentArray.count
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.setSelected(false, animated: true)
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         if renderedCells.count > indexPath.row {
-            println("rendered")
             return renderedCells[indexPath.row]
         } else {
             switch self.contentArray[indexPath.row].0 {
@@ -153,25 +187,8 @@ class CJTableView2: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath) as! CJTableView2_Cell
-        cell.selected = false
+        cell.setSelected(false, animated: false)
         self.presentHoverView(cell.label_Main.text)
-    }
-    
-    override func scrollViewDidScroll(scrollView: UIScrollView) {
-        let offset = scrollView.contentOffset
-        let bounds = scrollView.bounds
-        let size = scrollView.contentSize
-        let inset = scrollView.contentInset
-        var y = offset.y + bounds.size.height - inset.bottom
-        
-        let image_Height = self.view_Header.bounds.height
-        if image_Height - offset.y <= 75 {
-            self.title = (headerCell as! CJTableView1_Cell).label_Title.text
-            self.navigationController?.setNavigationBarHidden(false, animated: true)
-        } else if image_Height - offset.y > 80 {
-            tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
-            self.navigationController?.setNavigationBarHidden(true, animated: true)
-        }
     }
     
     func handleTxtFile() {
@@ -198,6 +215,10 @@ class CJTableView2: UITableViewController {
             
         case 2:
             let path = NSBundle.mainBundle().pathForResource("Text_Hacker", ofType: "txt")
+            generateAttrString(path)
+            
+        case 3:
+            let path = NSBundle.mainBundle().pathForResource("Text_Life", ofType: "txt")
             generateAttrString(path)
             
         default:
@@ -261,14 +282,12 @@ class CJTableView2: UITableViewController {
     }
     
     func presentHoverView(title: String) {
-        println("presentHoverView")
         let hoverView = NSBundle.mainBundle().loadNibNamed("CJProjectDetailPopupView", owner: self, options: nil)[0] as! CJProjectDetailPopupView
         hoverView.prevTableVC = self
         hoverView.addContents(title)
         self.navigationController!.view.addSubview(hoverView)
         UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.5, options: .CurveEaseInOut, animations: {
             self.navigationController!.view.transform = CGAffineTransformMakeScale(0.9, 0.9)
-//            hoverView.transform = CGAffineTransformMakeScale(1.11111, 1.11111)
             self.navigationController!.view.layer.cornerRadius = 8.0
             self.navigationController!.view.clipsToBounds = true
             

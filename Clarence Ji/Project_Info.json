@@ -2,7 +2,7 @@
     "TechCrunch Disrupt London 2014": {
         "image": ["TC_1", "TC_2"],
         "url": "http://challengepost.com/software/appilepsy-xnxj5",
-        "description": "Appilepsy - a mobile app that runs an intelligent algorithm in the background of your phone which analyses your phone's 3D accelerometer data in real-time to detect if you're having a convulsive epileptic seizure.",
+        "description": "Appilepsy - a mobile app that runs an intelligent algorithm in the background of your phone which analyzes your phone's 3D accelerometer data in real-time to detect if you're having a convulsive epileptic seizure.",
         "details": {
             "Organizer": "TechCrunch",
             "Award": "Second place \nMost creative use of Nexmo's API"
@@ -12,22 +12,23 @@
     "MLH Launch Hack 2014": {
         "image": ["MLHLaunch_1", "MLHLaunch_2"],
         "url": "https://www.youtube.com/watch?v=36XkUd9Ayz0&list=PLPDgudJ_VDUeRyJbmyKzSgaljWjMlRorJ&index=34",
-        "description": "JoinPack - an iOS app for meeting new people during social events based on others’ public profile (e.g. LinkedIn, Facebook, etc.). \nPhotos by C Ji and Major League Hacking.",
+        "description": "MLH Launch Hack is the first event by Major League Hacking in UK where we built JoinPack, which is for meeting and profiling new people on social events, based on their public profiles. \nPhotos by C Ji and Major League Hacking.",
         "details": {
             "Organizer": "Major League Hacking",
-            "Award": "Best use of Estimote Beacons"
+            "Award": "Best use of Estimote Beacons",
+            "Platform": "iOS"
         }
     },
     
     "EikonHack 2014": {
         "image": ["Eikon_1", "Eikon_2"],
         "url": "http://eikonhack.com/#media_n",
-        "description": "PerFeed - a mobile app for showing news feed more personally.",
+        "description": "Time time we built an app called PerFeed, which is a mobile app based on Thomson Reuter Eikon and social media for showing news feed more personally.",
         "details": {
             "Organizer": "Thomson Reuters Eikon",
-            "Award": "Third place"
+            "Award": "Third place",
+            "Platform": "iOS"
         }
-        
     },
     
     "HackLondon 2015": {
@@ -35,9 +36,9 @@
         "url": "http://hacklondon.org",
         "description": "HackLondon was my first hackthon where I attended as an organizer. Due to the limitation of audio and visual facilities in the auditorium, I made an app that was used to mirror what the camera captured to the display (HackCam). Photos by C Ji, Nikita L, Manoj N.",
         "details": {
-            "Organizer": "King's College London Tech Society, \nUniversity College London TechSoc, \nUniversity College London Entrepreneurs",
+            "Organizer": "KCL Tech Society, \nUCL TechSoc, \nUCL Entrepreneurs",
             "Size": "Approximately 200 students",
-            "Main Role": "Promotion Designer"
+            "Role": "Promotional Design"
         }
     },
     
@@ -47,7 +48,7 @@
         "description": "It was a great chance for me to meet new people, to learn new stuff, and to acquire more skills on running a hackathon. \n Photos by C Ji, Manoj N, courtesy of MLH.",
         "details": {
             "Organizer": "Major League Hacking",
-            "Main Role": "Volunteer"
+            "Role": "Volunteer"
         }
     },
     
@@ -57,18 +58,76 @@
         "description": "Appilepsy runs an algorithm which analyses the phone's accelerometer data to detect if you're having a convulsive epileptic seizure. We are currently working optimizing our algorithm, making the user experience more intuitional.",
         "details": {
             "Programming Language": "Objective-C, Swift, C",
-            "APIs Used": "HealthKit, Esri ArcGIS, Nexmo",
-            "Target User": "People who has epileptic seizure"
+            "APIs Used": "HealthKit, Esri ArcGIS, Nexmo, (WatchKit)",
+            "Platform": "iOS, Web",
+            "Target Audience": "People who has epileptic seizure"
         }
     },
     
     "HackCam": {
         "image": ["HackCam_1", "HackCam_2", "HackCam_3"],
         "url": "http://hacklondon.org",
-        "description": "Inspired by HackLondon, HackCam is used for recording and mirroring what the iPhone camera captures, and it is now in the phase of beta testing. On MLH Landing Hack, HackCam was used as a part of livestreaming. However, there are still things that can be greatly improved.",
+        "description": "Inspired by HackLondon, HackCam is used for recording and mirroring what the iPhone camera captures, and it is now in the phase of beta testing. On MLH Landing Hack, HackCam was used as a part of livestreaming.",
         "details": {
             "Programming Language": "Swift",
-            "Target User": "People who manage livestreaming but have limitation on audio and visual facilities"
+            "Platform": "iOS",
+            "Target Audience": "People who manage livestreaming but have limitation on audio and visual facilities"
+        }
+    },
+    
+    "Harbin": {
+        "image": ["HRB_1", "HRB_2"],
+        "url": "https://www.flickr.com/photos/clarence_ji/sets/72157637679301996/",
+        "description": "Harbin serves as a key political, economic, scientific, cultural and communications hub in Northeast China, as well as an important industrial base of the nation. On 22 June 2010, Harbin was appointed a UNESCO \"City of Music\" as part of the Creative Cities Network. Winter activities make me love my hometown even more.",
+        "details": {
+        }
+    },
+    
+    "Beijing": {
+        "image": ["BJ_1", "BJ_2", "BJ_3"],
+        "url": "https://www.flickr.com/photos/clarence_ji/sets/72157630158480818/",
+        "description": "Beijing is the capital of China. Living in such a big city needs a kind of courage. During my three-year stay, I often wondered about the future, I was fear thinking going abroad... But the city brought me the conception of globalization, the atmosphere of socialization and the power of making changes.",
+        "details": {
+        }
+    },
+    
+    "London": {
+        "image": ["LON_1", "LON_2", "LON_3"],
+        "url": "https://www.flickr.com/photos/clarence_ji/sets/72157635664023386/",
+        "description": "There are a few things that make me cherish every minute I stay in London. Fresher air, safer food and awesome friends. Also, living here encourages me to explore more other than staying at home. It is the curiosity that takes me to every corner of the city.",
+        "details": {
+        }
+    },
+    
+    "Music": {
+        "image": ["Music_1", "Music_2", "Music_3"],
+        "url": "•https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "description": "Human being need arts, and music is a kind of arts. Playing music instruments makes me forget everything terrible. Also, I am a huge fan of live concerts.",
+        "details": {
+            "Instruments": "Piano, Guitar",
+            "Fav. Genre": "Country, Pop",
+            "Fav. Artist": "Taylor Swift \nLuke Bryan \nEd Sheeran \nLady Antebellum"
+        }
+    },
+    
+    "Travel": {
+        "image": ["Travel_1", "Travel_2", "Travel_3"],
+        "url": "http://clarenceji.net/space/category/i-love-travel/",
+        "description": "During holidays, travelling is my best choice. I really love to see different places around the world, to know about other cultures, or just to relax. The \"Continents Conquered\" part below just means I have been to one or several countries in that continent.",
+        "details": {
+            "Continents Conquered": "Asia \nNorth America \nEurope \nTo be continued.."
+        }
+    },
+    
+    "Other activities and skills": {
+        "image": ["Other_1", "Other_2"],
+        "url": "•http://www.creativebloq.com/web-design/best-404-pages-812505",
+        "description": "",
+        "details": {
+            "Sports": "Cycling \nSkiing",
+            "Languages": "English \nMandarin Chinese \nSwift",
+            "Fav. Game": "Battlefield",
+            "Other": "Cooking on home parties \nSelfies"
         }
     },
 }

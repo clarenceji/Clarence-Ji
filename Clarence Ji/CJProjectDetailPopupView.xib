@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6724" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -47,14 +47,15 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="E9W-0d-Aa7">
-                    <rect key="frame" x="0.0" y="196" width="600" height="360"/>
+                    <rect key="frame" x="0.0" y="186" width="600" height="370"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <inset key="separatorInset" minX="50" minY="0.0" maxX="50" maxY="0.0"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="TvF-66-0K0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="4ET-Wp-eBD"/>
-                <constraint firstItem="E9W-0d-Aa7" firstAttribute="top" secondItem="0WE-X5-WTf" secondAttribute="bottom" constant="30" id="BmS-No-ztF"/>
+                <constraint firstItem="E9W-0d-Aa7" firstAttribute="top" secondItem="0WE-X5-WTf" secondAttribute="bottom" constant="20" id="BmS-No-ztF"/>
                 <constraint firstItem="TvF-66-0K0" firstAttribute="bottom" secondItem="fdA-8R-oyP" secondAttribute="bottom" constant="-3" id="Bx3-gl-geu"/>
                 <constraint firstItem="fdA-8R-oyP" firstAttribute="top" secondItem="TvF-66-0K0" secondAttribute="bottom" constant="5" id="Det-X8-ICk"/>
                 <constraint firstItem="0WE-X5-WTf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="Hf4-P4-hIt"/>
@@ -93,7 +94,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Key" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEw-o5-KYc">
-                        <rect key="frame" x="8" y="0.0" width="80" height="30"/>
+                        <rect key="frame" x="8" y="8" width="80" height="23"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="80" id="yCL-I5-xym"/>
                         </constraints>
@@ -102,20 +103,20 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MOd-Yl-u32">
-                        <rect key="frame" x="96" y="0.0" width="216" height="30"/>
+                        <rect key="frame" x="96" y="8" width="216" height="23"/>
                         <fontDescription key="fontDescription" name="MyriadPro-Light" family="Myriad Pro" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="MOd-Yl-u32" firstAttribute="top" secondItem="q2r-RJ-hrC" secondAttribute="topMargin" constant="-8" id="3L5-4V-MFF"/>
+                    <constraint firstItem="MOd-Yl-u32" firstAttribute="top" secondItem="q2r-RJ-hrC" secondAttribute="topMargin" id="3L5-4V-MFF"/>
                     <constraint firstItem="MOd-Yl-u32" firstAttribute="trailing" secondItem="q2r-RJ-hrC" secondAttribute="trailingMargin" id="BgS-1D-XM5"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="MOd-Yl-u32" secondAttribute="bottom" constant="1" id="DwL-5B-TVs"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="MOd-Yl-u32" secondAttribute="bottom" id="DwL-5B-TVs"/>
                     <constraint firstItem="VEw-o5-KYc" firstAttribute="leading" secondItem="q2r-RJ-hrC" secondAttribute="leadingMargin" id="FSo-tQ-uW0"/>
-                    <constraint firstItem="VEw-o5-KYc" firstAttribute="top" secondItem="q2r-RJ-hrC" secondAttribute="topMargin" constant="-8" id="L6K-LD-yVM"/>
+                    <constraint firstItem="VEw-o5-KYc" firstAttribute="top" secondItem="q2r-RJ-hrC" secondAttribute="topMargin" id="L6K-LD-yVM"/>
                     <constraint firstItem="MOd-Yl-u32" firstAttribute="leading" secondItem="VEw-o5-KYc" secondAttribute="trailing" constant="8" id="VJE-bT-02n"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="VEw-o5-KYc" secondAttribute="bottom" constant="1" id="tJy-q7-6fv"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="VEw-o5-KYc" secondAttribute="bottom" id="tJy-q7-6fv"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -124,7 +125,7 @@
                 <outlet property="label_Key_ConstraintWidth" destination="yCL-I5-xym" id="JgR-no-fEG"/>
                 <outlet property="label_Value" destination="MOd-Yl-u32" id="f2T-tc-Hfr"/>
             </connections>
-            <point key="canvasLocation" x="425" y="768"/>
+            <point key="canvasLocation" x="140" y="393"/>
         </tableViewCell>
     </objects>
 </document>

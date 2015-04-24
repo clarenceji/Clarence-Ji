@@ -20,7 +20,7 @@ class CJTableView3_Cell: UITableViewCell, MFMailComposeViewControllerDelegate {
     let nightMode = NSUserDefaults.standardUserDefaults().boolForKey("DarkMode")
     
     let strings_Title = [
-        "Why showing the air pressure? (iPhone 6 & 6p)",
+        "Why air pressure? (iPhone 6 & 6p)",
         "Dark Mode",
         "Contact me by Email",
         "Personal Website"

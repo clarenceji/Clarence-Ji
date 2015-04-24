@@ -78,7 +78,7 @@ class CJProjectDetailPopupView: UIView, UIScrollViewDelegate, UITableViewDelegat
         
         self.tableView_Details.delegate = self
         self.tableView_Details.dataSource = self
-        self.tableView_Details.estimatedRowHeight = 30.0
+        self.tableView_Details.estimatedRowHeight = 35.0
         self.tableView_Details.rowHeight = UITableViewAutomaticDimension
         
         
@@ -186,7 +186,13 @@ class CJProjectDetailPopupView: UIView, UIScrollViewDelegate, UITableViewDelegat
             // 1 - Images
             addImages(currentDict["image"] as! [String])
             // 2 - URL
-            self.urlString = currentDict["url"] as! String
+            var urlStringFromDict = currentDict["url"] as! String
+            if urlStringFromDict[urlStringFromDict.startIndex] == "•" {
+                urlStringFromDict.removeAtIndex(urlStringFromDict.startIndex)
+                btn_Details.setImage(UIImage(named: "Troll-face"), forState: .Normal)
+                btn_Details.imageView?.contentMode = .ScaleAspectFit
+            }
+            self.urlString = urlStringFromDict
             // 3 - Description
             var string = currentDict["description"] as? String
             let attrStyle = NSMutableParagraphStyle()

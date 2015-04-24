@@ -4,39 +4,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
-        <!--View Controller1-->
-        <scene sceneID="2HL-4B-ICk">
-            <objects>
-                <viewController id="b9s-Wx-Sm7" customClass="ViewController1" customModule="Clarence_Ji" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Mwo-O2-ad6"/>
-                        <viewControllerLayoutGuide type="bottom" id="3ce-ge-bxm"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cyc-qV-ByZ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fwt-uD-ZAA">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Fwt-uD-ZAA" secondAttribute="trailing" id="8Cy-QQ-UsC"/>
-                            <constraint firstItem="Fwt-uD-ZAA" firstAttribute="top" secondItem="cyc-qV-ByZ" secondAttribute="top" id="JSV-8i-VlB"/>
-                            <constraint firstItem="Fwt-uD-ZAA" firstAttribute="bottom" secondItem="3ce-ge-bxm" secondAttribute="top" id="NBC-EM-057"/>
-                            <constraint firstItem="Fwt-uD-ZAA" firstAttribute="leading" secondItem="cyc-qV-ByZ" secondAttribute="leading" id="waf-ic-ces"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="view_" destination="Fwt-uD-ZAA" id="qwT-Gr-jHH"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GGz-Id-728" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="279" y="-242"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
@@ -139,7 +106,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0rk-Ac-au2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2306" y="1085"/>
+            <point key="canvasLocation" x="936" y="438"/>
         </scene>
         <!--Intro-->
         <scene sceneID="kfo-ko-e3P">
@@ -179,38 +146,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iWA-sw-rTE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="936" y="1743"/>
-        </scene>
-        <!--Nav View 2-->
-        <scene sceneID="0GC-vy-uJG">
-            <objects>
-                <navigationController title="Nav View 2" id="kkW-PV-WbW" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Nz4-KC-EjX">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="eBF-xt-9i9" kind="relationship" relationship="rootViewController" id="xxf-cR-UjG"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RTy-gl-QX2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="278" y="1743"/>
-        </scene>
-        <!--Nav View 3-->
-        <scene sceneID="Pgk-S8-15W">
-            <objects>
-                <navigationController storyboardIdentifier="CJNavView3" title="Nav View 3" id="CGS-z4-bPo" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="urT-xO-n7p">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="oec-qZ-mpM" kind="relationship" relationship="rootViewController" id="vfj-9I-4ZZ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="04P-gD-Tlv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1648" y="1085"/>
         </scene>
         <!--Nav View 1-->
         <scene sceneID="jMc-xX-fYZ">
