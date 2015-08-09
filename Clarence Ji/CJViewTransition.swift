@@ -11,16 +11,16 @@ import UIKit
 
 class CJViewTransition: NSObject, UIViewControllerAnimatedTransitioning {
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
+    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         return 0.8
     }
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        var fromViewController: UIViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
-        var toViewController: UIViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
-        var sourceRect: CGRect = transitionContext.initialFrameForViewController(fromViewController)
+        let fromViewController: UIViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
+        let toViewController: UIViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
+//        var sourceRect: CGRect = transitionContext.initialFrameForViewController(fromViewController)
         
-        var containerView: UIView = transitionContext.containerView()
+        let containerView: UIView = transitionContext.containerView()!
         containerView.insertSubview(toViewController.view, belowSubview: fromViewController.view)
         
         toViewController.view.transform = CGAffineTransformMakeScale(0.8, 0.8)

@@ -75,7 +75,7 @@ class CJTableView1: UITableViewController {
             return cellArray[indexPath.row] as! CJTableView1_Cell
         } else {
             // Initialize cell if cell is not stored in array
-            var cell = NSBundle.mainBundle().loadNibNamed("CJTableView1_Cell", owner: self, options: nil)[0] as? CJTableView1_Cell
+            let cell = NSBundle.mainBundle().loadNibNamed("CJTableView1_Cell", owner: self, options: nil)[0] as? CJTableView1_Cell
             var imageName = "Daytime_\(indexPath.row + 1)"
             if NSUserDefaults.standardUserDefaults().boolForKey("DarkMode") {
                 imageName = "Night_\(indexPath.row + 1)"
@@ -107,7 +107,7 @@ class CJTableView1: UITableViewController {
             case 3:
                 cell!.label_Title.text = "Life's Good"
             case 4:
-                var cell_Barometer = NSBundle.mainBundle().loadNibNamed("CJTableView1_Cell", owner: self, options: nil)[1] as? CJTableView1_Cell_Barometer
+                let cell_Barometer = NSBundle.mainBundle().loadNibNamed("CJTableView1_Cell", owner: self, options: nil)[1] as? CJTableView1_Cell_Barometer
                 cell_Barometer!.view_TableViewController = self
                 if NSUserDefaults.standardUserDefaults().boolForKey("DarkMode") {
                     cell_Barometer!.setDarkMode()

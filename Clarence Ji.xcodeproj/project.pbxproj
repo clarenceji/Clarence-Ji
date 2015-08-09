@@ -20,10 +20,8 @@
 		111A44E61B1796FE003201DD /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111A44E51B1796FE003201DD /* InterfaceController.swift */; };
 		111A44E81B1796FE003201DD /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111A44E71B1796FE003201DD /* NotificationController.swift */; };
 		111A44EA1B1796FE003201DD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 111A44E91B1796FE003201DD /* Images.xcassets */; };
-		111A44EE1B1796FE003201DD /* Clarence Ji WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 111A44ED1B1796FE003201DD /* Clarence Ji WatchKit App.app */; };
 		111A44F61B1796FE003201DD /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 111A44F41B1796FE003201DD /* Interface.storyboard */; };
 		111A44F81B1796FE003201DD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 111A44F71B1796FE003201DD /* Images.xcassets */; };
-		111A44FB1B1796FE003201DD /* Clarence Ji WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 111A44E01B1796FE003201DD /* Clarence Ji WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		11638F7B1AE9BE510019BDB7 /* Text_Life.txt in Resources */ = {isa = PBXBuildFile; fileRef = 11638F7A1AE9BE510019BDB7 /* Text_Life.txt */; };
 		1179E37A1AE2B9D60036A5D4 /* CJTableView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1179E3791AE2B9D60036A5D4 /* CJTableView2.swift */; };
 		1179E37C1AE409DA0036A5D4 /* Text_Intro.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1179E37B1AE409DA0036A5D4 /* Text_Intro.txt */; };
@@ -33,6 +31,8 @@
 		11A37DDE1AE56094006B1F80 /* CJImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A37DDD1AE56094006B1F80 /* CJImageView.swift */; };
 		11A37DE21AE57649006B1F80 /* Text_Education.txt in Resources */ = {isa = PBXBuildFile; fileRef = 11A37DE11AE57649006B1F80 /* Text_Education.txt */; };
 		11C784421AE45E7B0072A3E9 /* CJBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C784411AE45E7B0072A3E9 /* CJBackButton.swift */; };
+		11CD1B9A1B77802200692B50 /* Clarence Ji WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 111A44E01B1796FE003201DD /* Clarence Ji WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		11CD1B9D1B77802200692B50 /* Clarence Ji WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 111A44ED1B1796FE003201DD /* Clarence Ji WatchKit App.app */; };
 		11D865661B179C68003B37BD /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11D865651B179C68003B37BD /* NotificationCenter.framework */; };
 		11D8656B1B179C68003B37BD /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D8656A1B179C68003B37BD /* TodayViewController.swift */; };
 		11D8656D1B179C68003B37BD /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11D8656C1B179C68003B37BD /* MainInterface.storyboard */; };
@@ -60,19 +60,19 @@
 			remoteGlobalIDString = 1114F1731A9283BD00D73E21;
 			remoteInfo = "Clarence Ji";
 		};
-		111A44EF1B1796FE003201DD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1114F16C1A9283BD00D73E21 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 111A44EC1B1796FE003201DD;
-			remoteInfo = "Clarence Ji WatchKit App";
-		};
-		111A44F91B1796FE003201DD /* PBXContainerItemProxy */ = {
+		11CD1B981B77802200692B50 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1114F16C1A9283BD00D73E21 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 111A44DF1B1796FE003201DD;
 			remoteInfo = "Clarence Ji WatchKit Extension";
+		};
+		11CD1B9B1B77802200692B50 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1114F16C1A9283BD00D73E21 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 111A44EC1B1796FE003201DD;
+			remoteInfo = "Clarence Ji WatchKit App";
 		};
 		11D8656E1B179C68003B37BD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -90,10 +90,31 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				111A44FB1B1796FE003201DD /* Clarence Ji WatchKit Extension.appex in Embed App Extensions */,
 				11D865701B179C68003B37BD /* WWDC.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11CD1B9E1B77802200692B50 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				11CD1B9A1B77802200692B50 /* Clarence Ji WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		11CD1B9F1B77802200692B50 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				11CD1B9D1B77802200692B50 /* Clarence Ji WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -406,12 +427,13 @@
 				1114F1711A9283BD00D73E21 /* Frameworks */,
 				1114F1721A9283BD00D73E21 /* Resources */,
 				111A45021B1796FE003201DD /* Embed App Extensions */,
+				11CD1B9F1B77802200692B50 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				111A44FA1B1796FE003201DD /* PBXTargetDependency */,
 				11D8656F1B179C68003B37BD /* PBXTargetDependency */,
+				11CD1B9C1B77802200692B50 /* PBXTargetDependency */,
 			);
 			name = "Clarence Ji";
 			productName = "Clarence Ji";
@@ -447,27 +469,28 @@
 			buildRules = (
 			);
 			dependencies = (
-				111A44F01B1796FE003201DD /* PBXTargetDependency */,
 			);
 			name = "Clarence Ji WatchKit Extension";
 			productName = "Clarence Ji WatchKit Extension";
 			productReference = 111A44E01B1796FE003201DD /* Clarence Ji WatchKit Extension.appex */;
-			productType = "com.apple.product-type.watchkit-extension";
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 		111A44EC1B1796FE003201DD /* Clarence Ji WatchKit App */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 111A45001B1796FE003201DD /* Build configuration list for PBXNativeTarget "Clarence Ji WatchKit App" */;
 			buildPhases = (
 				111A44EB1B1796FE003201DD /* Resources */,
+				11CD1B9E1B77802200692B50 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				11CD1B991B77802200692B50 /* PBXTargetDependency */,
 			);
 			name = "Clarence Ji WatchKit App";
 			productName = "Clarence Ji WatchKit App";
 			productReference = 111A44ED1B1796FE003201DD /* Clarence Ji WatchKit App.app */;
-			productType = "com.apple.product-type.application.watchapp";
+			productType = "com.apple.product-type.application.watchapp2";
 		};
 		11D865621B179C68003B37BD /* WWDC */ = {
 			isa = PBXNativeTarget;
@@ -492,8 +515,9 @@
 		1114F16C1A9283BD00D73E21 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Clarence Ji";
 				TargetAttributes = {
 					1114F1731A9283BD00D73E21 = {
@@ -572,7 +596,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				111A44EA1B1796FE003201DD /* Images.xcassets in Resources */,
-				111A44EE1B1796FE003201DD /* Clarence Ji WatchKit App.app in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -654,15 +677,15 @@
 			target = 1114F1731A9283BD00D73E21 /* Clarence Ji */;
 			targetProxy = 1114F18A1A9283BD00D73E21 /* PBXContainerItemProxy */;
 		};
-		111A44F01B1796FE003201DD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 111A44EC1B1796FE003201DD /* Clarence Ji WatchKit App */;
-			targetProxy = 111A44EF1B1796FE003201DD /* PBXContainerItemProxy */;
-		};
-		111A44FA1B1796FE003201DD /* PBXTargetDependency */ = {
+		11CD1B991B77802200692B50 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 111A44DF1B1796FE003201DD /* Clarence Ji WatchKit Extension */;
-			targetProxy = 111A44F91B1796FE003201DD /* PBXContainerItemProxy */;
+			targetProxy = 11CD1B981B77802200692B50 /* PBXContainerItemProxy */;
+		};
+		11CD1B9C1B77802200692B50 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 111A44EC1B1796FE003201DD /* Clarence Ji WatchKit App */;
+			targetProxy = 11CD1B9B1B77802200692B50 /* PBXContainerItemProxy */;
 		};
 		11D8656F1B179C68003B37BD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -711,6 +734,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -777,6 +801,7 @@
 				INFOPLIST_FILE = "Clarence Ji/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cjnet.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -791,6 +816,7 @@
 				INFOPLIST_FILE = "Clarence Ji/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cjnet.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -810,6 +836,7 @@
 				);
 				INFOPLIST_FILE = "Clarence JiTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cjnet.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Clarence Ji.app/Clarence Ji";
 			};
@@ -825,6 +852,7 @@
 				);
 				INFOPLIST_FILE = "Clarence JiTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cjnet.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Clarence Ji.app/Clarence Ji";
 			};
@@ -843,8 +871,12 @@
 				INFOPLIST_FILE = "Clarence Ji WatchKit Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cjnet.Clarence-Ji.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
@@ -858,8 +890,12 @@
 				INFOPLIST_FILE = "Clarence Ji WatchKit Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cjnet.Clarence-Ji.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
@@ -868,6 +904,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -875,11 +912,12 @@
 				);
 				IBSC_MODULE = Clarence_Ji_WatchKit_Extension;
 				INFOPLIST_FILE = "Clarence Ji WatchKit App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cjnet.Clarence-Ji.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
-				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
@@ -889,14 +927,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				IBSC_MODULE = Clarence_Ji_WatchKit_Extension;
 				INFOPLIST_FILE = "Clarence Ji WatchKit App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cjnet.Clarence-Ji.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
-				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
@@ -913,6 +953,7 @@
 				INFOPLIST_FILE = "Clarence in Notification Center/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cjnet.Clarence-Ji.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -928,6 +969,7 @@
 				INFOPLIST_FILE = "Clarence in Notification Center/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cjnet.Clarence-Ji.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};

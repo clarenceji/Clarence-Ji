@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CJTableView1_Cell: UITableViewCell, UIGestureRecognizerDelegate {
+class CJTableView1_Cell: UITableViewCell {
     
     @IBOutlet var view_BlackLayer: UIView!
     @IBOutlet var label_Title: UILabel!
@@ -54,17 +54,17 @@ class CJTableView1_Cell: UITableViewCell, UIGestureRecognizerDelegate {
         })
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        prevTouchLocation = (touches.first! as! UITouch).locationInView(self)
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        prevTouchLocation = (touches.first! ).locationInView(self)
         animateBlackLayer()
     }
     
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         hideBlackLayer()
     }
     
-    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
-        let currentTouchLocation = (touches.first! as! UITouch).locationInView(self)
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let currentTouchLocation = (touches.first! ).locationInView(self)
         // Calculate touch displacement
         let displacementX = abs(currentTouchLocation.x - prevTouchLocation.x)
         let displacementY = abs(currentTouchLocation.y - prevTouchLocation.y)

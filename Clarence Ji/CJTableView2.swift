@@ -169,13 +169,9 @@ class CJTableView2: UITableViewController {
                 renderedCells.append(cell)
                 
                 return cell
-            default:
-                break
-                
             }
         }
         
-        return UITableViewCell()
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -220,8 +216,9 @@ class CJTableView2: UITableViewController {
     }
     
     func generateAttrString(path: String?) {
-        if let content = String(contentsOfFile: path!, encoding: NSUTF8StringEncoding, error: nil) {
-            var array = content.componentsSeparatedByString("\n¶")
+        do {
+            let content = try String(contentsOfFile: path!, encoding: NSUTF8StringEncoding)
+            let array = content.componentsSeparatedByString("\n¶")
             let attrStyle = NSMutableParagraphStyle()
             attrStyle.lineSpacing = 8
             attrStyle.paragraphSpacing = 12
@@ -249,6 +246,7 @@ class CJTableView2: UITableViewController {
                 contentArray.append((false, attrString))
             }
             
+        } catch _ {
         }
     }
     

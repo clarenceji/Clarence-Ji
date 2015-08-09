@@ -17,8 +17,8 @@ class CJAltimeter {
     
     func getPressure(completion: (success: Bool, reading: Float?) -> Void) {
         if CMAltimeter.isRelativeAltitudeAvailable() {
-            altimeter.startRelativeAltitudeUpdatesToQueue(NSOperationQueue.currentQueue(), withHandler: { (altdata: CMAltitudeData!, error: NSError!) -> Void in
-                self.pressure = altdata.pressure.floatValue
+            altimeter.startRelativeAltitudeUpdatesToQueue(NSOperationQueue.currentQueue()!, withHandler: { (altdata, error) -> Void in
+                self.pressure = altdata?.pressure.floatValue
                 self.altimeter.stopRelativeAltitudeUpdates()
                 completion(success: true, reading: self.pressure * 10)
             })
@@ -37,7 +37,7 @@ class CJAltimeter {
         if !isPressureAvailable {
             let date = NSDate()
             let calendar = NSCalendar.currentCalendar()
-            let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute, fromDate: date)
+            let components = calendar.components([.Hour, .Minute], fromDate: date)
             let hour = components.hour
             if hour >= 18 || hour <= 6 {
                 // Based on Current Time, Set Dark Mode

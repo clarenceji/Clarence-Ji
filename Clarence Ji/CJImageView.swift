@@ -9,13 +9,13 @@
 import UIKit
 
 class CJImageView: UIImageView {
-    override init(image: UIImage!) {
+    override init(image: UIImage?) {
         super.init(image: image)
         self.contentMode = .ScaleAspectFill
         self.resize(image)
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     

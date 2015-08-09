@@ -36,7 +36,7 @@ class CJProjectDetailPopupView: UIView, UIScrollViewDelegate, UITableViewDelegat
     
     let darkMode = NSUserDefaults.standardUserDefaults().boolForKey("DarkMode")
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -80,8 +80,8 @@ class CJProjectDetailPopupView: UIView, UIScrollViewDelegate, UITableViewDelegat
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         if scrollView == self.scrollView_Images {
-            var offsetLooping = 1
-            var page = (scrollView.contentOffset.x - selfWidth / CGFloat(2)) / selfWidth + CGFloat(offsetLooping)
+            let offsetLooping = 1
+            let page = (scrollView.contentOffset.x - selfWidth / CGFloat(2)) / selfWidth + CGFloat(offsetLooping)
             pageControl.currentPage = Int(page) % numberOfImages
         }
     }
@@ -110,7 +110,7 @@ class CJProjectDetailPopupView: UIView, UIScrollViewDelegate, UITableViewDelegat
         
         // Populate ScrollView with Images
         for (var i = 0; i < numberOfImages; i++) {
-            var frame = CGRectMake(
+            let frame = CGRectMake(
                 self.frame.size.width * CGFloat(i),
                 0,
                 self.frame.size.width,
@@ -163,10 +163,12 @@ class CJProjectDetailPopupView: UIView, UIScrollViewDelegate, UITableViewDelegat
     
     func jsonToDict() -> [String: AnyObject] {
         let path = NSBundle.mainBundle().pathForResource("Project_Info", ofType: "json")
-        if let data = NSData(contentsOfFile: path!, options: .DataReadingMappedIfSafe, error: nil) {
-            var error: NSError?
-            let json = NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers, error: &error) as! [String: AnyObject]
+        do {
+            let data = try NSData(contentsOfFile: path!, options: .DataReadingMappedIfSafe)
+//            var error: NSError?
+            let json = try! NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers) as! [String: AnyObject]
             return json
+        } catch _ {
         }
         
         return [String: AnyObject]()
@@ -188,13 +190,13 @@ class CJProjectDetailPopupView: UIView, UIScrollViewDelegate, UITableViewDelegat
             }
             self.urlString = urlStringFromDict
             // 3 - Description
-            var string = currentDict["description"] as? String
+            let string = currentDict["description"] as? String
             let attrStyle = NSMutableParagraphStyle()
             attrStyle.lineSpacing = 7
-            var attributes = [
+            let attributes = [
                 NSParagraphStyleAttributeName: attrStyle
             ]
-            var attrString = NSMutableAttributedString(string: string!, attributes: attributes)
+            let attrString = NSMutableAttributedString(string: string!, attributes: attributes)
             self.label_Description.attributedText = attrString
             self.label_Description.textAlignment = .Center
             // 4 - Details
@@ -227,13 +229,13 @@ class CJProjectDetailPopupView: UIView, UIScrollViewDelegate, UITableViewDelegat
         
         let attrStyle = NSMutableParagraphStyle()
         attrStyle.lineSpacing = 7
-        var attributes = [
+        let attributes = [
             NSParagraphStyleAttributeName: attrStyle
         ]
         
         if array_Keys != nil && array_Values != nil {
-            var attrString_Key = NSMutableAttributedString(string: array_Keys![indexPath.row], attributes: attributes)
-            var attrString_Value = NSMutableAttributedString(string: array_Values![indexPath.row], attributes: attributes)
+            let attrString_Key = NSMutableAttributedString(string: array_Keys![indexPath.row], attributes: attributes)
+            let attrString_Value = NSMutableAttributedString(string: array_Values![indexPath.row], attributes: attributes)
             
             cell.label_Key.attributedText = attrString_Key
             cell.label_Value.attributedText = attrString_Value

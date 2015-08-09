@@ -18,7 +18,7 @@ class CJBackButton: UIButton, UIGestureRecognizerDelegate {
         super.init(frame: CGRectMake(frame.origin.x, frame.origin.y, 30, 30))
         self.setImage(UIImage(named: "BackButton"), forState: .Normal)
         
-        var blurEffect = UIBlurEffect(style: .Light)
+        let blurEffect = UIBlurEffect(style: .Light)
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = self.bounds
         blurView.layer.cornerRadius = self.bounds.width / 2
@@ -34,7 +34,7 @@ class CJBackButton: UIButton, UIGestureRecognizerDelegate {
         self.insertSubview(blackLayer, belowSubview: self.imageView!)
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -54,15 +54,15 @@ class CJBackButton: UIButton, UIGestureRecognizerDelegate {
     
     var prevTouchLocation: CGPoint!
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        prevTouchLocation = (touches.first! as! UITouch).locationInView(self)
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        prevTouchLocation = (touches.first! ).locationInView(self)
         UIView.animateWithDuration(0.2, animations: {
             self.blackLayer.alpha = 1.0
         })
     }
     
-    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
-        let currentTouchLocation = (touches.first! as! UITouch).locationInView(self)
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let currentTouchLocation = (touches.first! ).locationInView(self)
         // Calculate touch displacement
         let displacementX = abs(currentTouchLocation.x - prevTouchLocation.x)
         let displacementY = abs(currentTouchLocation.y - prevTouchLocation.y)
