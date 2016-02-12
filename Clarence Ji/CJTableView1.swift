@@ -70,7 +70,7 @@ class CJTableView1: UITableViewController {
             cellArray = [nil, nil, nil, nil, nil]
         }
         
-        if let cellInArray: AnyObject = cellArray[indexPath.row] {
+        if let _: AnyObject = cellArray[indexPath.row] {
             // Get stored cell from array
             return cellArray[indexPath.row] as! CJTableView1_Cell
         } else {
