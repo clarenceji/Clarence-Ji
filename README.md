@@ -1,6 +1,7 @@
 # Clarence-Ji
+<img src="http://forthebadge.com/images/badges/made-with-swift.svg" height="30">
 
-![Screenshot](IMG_7041.jpg)
+<img src="IMG_7041.jpg" width="40%">
 
 **Clarence Ji** is the name of an iOS app that was used to apply for Apple Worldwide Developer Conference student scholarship in 2015.
 It is not and will not be pushlished on the App Store due to the [App Review Policy](https://developer.apple.com/app-store/review/), however, this app helped me win the scholarship and made me possible to attend the conference. <br />
