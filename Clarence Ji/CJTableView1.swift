@@ -10,31 +10,31 @@ import UIKit
 
 class CJTableView1: UITableViewController {
 
-    var nightMode = NSUserDefaults.standardUserDefaults().boolForKey("DarkMode")
-    let rowHeight = (UIScreen.mainScreen().bounds.height - 20) / 5
-    let screenWidth = UIScreen.mainScreen().bounds.width
+    var nightMode = UserDefaults.standard.bool(forKey: "DarkMode")
+    let rowHeight = (UIScreen.main.bounds.height - 20) / 5
+    let screenWidth = UIScreen.main.bounds.width
     var cellArray: [AnyObject?] = [nil, nil, nil, nil, nil]
     var prevDarkMode: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if !NSUserDefaults.standardUserDefaults().boolForKey("AltimeterReadingReady") {
-            let timer = NSTimer(timeInterval: 1.0, target: self, selector: Selector("updateTime:"), userInfo: nil, repeats: true)
-            NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSRunLoopCommonModes)
+        if !UserDefaults.standard.bool(forKey: "AltimeterReadingReady") {
+            let timer = Timer(timeInterval: 1.0, target: self, selector: #selector(CJTableView1.updateTime(_:)), userInfo: nil, repeats: true)
+            RunLoop.current.add(timer, forMode: RunLoopMode.commonModes)
         }
         self.navigationController?.hidesBarsOnSwipe = false
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         navigationController!.setNavigationBarHidden(true, animated: true)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,17 +43,17 @@ class CJTableView1: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // Return the number of sections.
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
         return 5
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if indexPath.row == 0 {
             return rowHeight + 30
@@ -65,8 +65,8 @@ class CJTableView1: UITableViewController {
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if NSUserDefaults.standardUserDefaults().boolForKey("DarkMode") != prevDarkMode {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if UserDefaults.standard.bool(forKey: "DarkMode") != prevDarkMode {
             cellArray = [nil, nil, nil, nil, nil]
         }
         
@@ -75,9 +75,9 @@ class CJTableView1: UITableViewController {
             return cellArray[indexPath.row] as! CJTableView1_Cell
         } else {
             // Initialize cell if cell is not stored in array
-            let cell = NSBundle.mainBundle().loadNibNamed("CJTableView1_Cell", owner: self, options: nil)[0] as? CJTableView1_Cell
+            let cell = Bundle.main.loadNibNamed("CJTableView1_Cell", owner: self, options: nil)?[0] as? CJTableView1_Cell
             var imageName = "Daytime_\(indexPath.row + 1)"
-            if NSUserDefaults.standardUserDefaults().boolForKey("DarkMode") {
+            if UserDefaults.standard.bool(forKey: "DarkMode") {
                 imageName = "Night_\(indexPath.row + 1)"
                 self.prevDarkMode = true
             } else {
@@ -86,11 +86,11 @@ class CJTableView1: UITableViewController {
         
             // Set Background Images
             cell!.backgroundView = UIImageView(image: UIImage(named: imageName))
-            cell!.backgroundView?.contentMode = .ScaleAspectFill
+            cell!.backgroundView?.contentMode = .scaleAspectFill
             cell!.backgroundView?.clipsToBounds = true
             
             cell!.selectedBackgroundView = UIImageView(image: UIImage(named: imageName))
-            cell!.selectedBackgroundView?.contentMode = .ScaleAspectFill
+            cell!.selectedBackgroundView?.contentMode = .scaleAspectFill
             cell!.selectedBackgroundView?.clipsToBounds = true
             
             cell!.index = indexPath.row
@@ -98,7 +98,7 @@ class CJTableView1: UITableViewController {
             // Set label texts
             switch indexPath.row {
             case 0:
-                cell!.label_Title.center = CGPointMake(cell!.label_Title.center.x, cell!.label_Title.center.y + 20)
+                cell!.label_Title.center = CGPoint(x: cell!.label_Title.center.x, y: cell!.label_Title.center.y + 20)
                 cell!.label_Title.text = "I, a Simple Guy"
             case 1:
                 cell!.label_Title.text = "Never Stop Learning"
@@ -107,9 +107,9 @@ class CJTableView1: UITableViewController {
             case 3:
                 cell!.label_Title.text = "Life's Good"
             case 4:
-                let cell_Barometer = NSBundle.mainBundle().loadNibNamed("CJTableView1_Cell", owner: self, options: nil)[1] as? CJTableView1_Cell_Barometer
+                let cell_Barometer = Bundle.main.loadNibNamed("CJTableView1_Cell", owner: self, options: nil)?[1] as? CJTableView1_Cell_Barometer
                 cell_Barometer!.view_TableViewController = self
-                if NSUserDefaults.standardUserDefaults().boolForKey("DarkMode") {
+                if UserDefaults.standard.bool(forKey: "DarkMode") {
                     cell_Barometer!.setDarkMode()
                 }
                 return cell_Barometer!
@@ -124,19 +124,19 @@ class CJTableView1: UITableViewController {
         
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row != 4 {
             for index in 0..<5 {
-                tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0))?.alpha = 0
+                tableView.cellForRow(at: IndexPath(row: index, section: 0))?.alpha = 0
             }
-            tableView.scrollToRowAtIndexPath(indexPath, atScrollPosition: .Top, animated: true)
+            tableView.scrollToRow(at: indexPath, at: .top, animated: true)
         }
         
     }
     
 
-    func updateTime(timer: NSTimer) {
-        if let barometerCell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 4, inSection: 0)) as? CJTableView1_Cell_Barometer {
+    func updateTime(_ timer: Timer) {
+        if let barometerCell = tableView.cellForRow(at: IndexPath(row: 4, section: 0)) as? CJTableView1_Cell_Barometer {
             barometerCell.timerTick(nil)
         }
     }

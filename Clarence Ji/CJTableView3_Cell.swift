@@ -17,7 +17,7 @@ class CJTableView3_Cell: UITableViewCell, MFMailComposeViewControllerDelegate {
     
     var tableView: CJTableView3!
     
-    let nightMode = NSUserDefaults.standardUserDefaults().boolForKey("DarkMode")
+    let nightMode = UserDefaults.standard.bool(forKey: "DarkMode")
     
     let strings_Title = [
         "Why air pressure? (iPhone 6 & 6p)",
@@ -36,13 +36,13 @@ class CJTableView3_Cell: UITableViewCell, MFMailComposeViewControllerDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        switch_DarkMode.hidden = true
-        selectionStyle = .None
+        switch_DarkMode.isHidden = true
+        selectionStyle = .none
         // Set label colors
-        setDarkModeLabels(NSUserDefaults.standardUserDefaults().boolForKey("DarkMode"))
+        setDarkModeLabels(UserDefaults.standard.bool(forKey: "DarkMode"))
     }
     
-    func setLabels(cellAtRow: Int) {
+    func setLabels(_ cellAtRow: Int) {
         label_Title.text = strings_Title[cellAtRow]
         
         let attrString = NSMutableAttributedString(string: strings_Text[cellAtRow])
@@ -55,19 +55,19 @@ class CJTableView3_Cell: UITableViewCell, MFMailComposeViewControllerDelegate {
         // Show dark mode switch
         if cellAtRow == 1 {
             if nightMode {
-                self.switch_DarkMode.on = true
+                self.switch_DarkMode.isOn = true
             } else {
-                self.switch_DarkMode.on = false
+                self.switch_DarkMode.isOn = false
             }
-            self.switch_DarkMode.hidden = false
+            self.switch_DarkMode.isHidden = false
         }
     }
 
-    @IBAction func switch_DarkMode_Triggered(sender: AnyObject) {
-        setDarkModeManually(switch_DarkMode.on)
+    @IBAction func switch_DarkMode_Triggered(_ sender: AnyObject) {
+        setDarkModeManually(switch_DarkMode.isOn)
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
@@ -76,26 +76,26 @@ class CJTableView3_Cell: UITableViewCell, MFMailComposeViewControllerDelegate {
         return height
     }
     
-    func setDarkModeManually(darkMode: Bool) {
-        NSUserDefaults.standardUserDefaults().setBool(darkMode, forKey: "DarkMode")
+    func setDarkModeManually(_ darkMode: Bool) {
+        UserDefaults.standard.set(darkMode, forKey: "DarkMode")
         setDarkModeLabels(darkMode)
         if darkMode {
-            dispatch_async(dispatch_get_main_queue(), {
+            DispatchQueue.main.async(execute: {
                 CJNavView1.applyNavigationBarStyleDark(self.tableView)
             })
         }
     }
     
-    func setDarkModeLabels(darkMode: Bool?) {
-        dispatch_async(dispatch_get_main_queue(), {
+    func setDarkModeLabels(_ darkMode: Bool?) {
+        DispatchQueue.main.async(execute: {
             if darkMode == false || darkMode == nil {
                 CJNavView1.applyNavigationBarStyleLight(self.tableView)
-                self.label_Text.textColor = UIColor.blackColor()
-                self.label_Title.textColor = UIColor.blackColor()
+                self.label_Text.textColor = UIColor.black
+                self.label_Title.textColor = UIColor.black
             } else if darkMode == true {
                 CJNavView1.applyNavigationBarStyleDark(self.tableView)
-                self.label_Title.textColor = UIColor.grayColor()
-                self.label_Text.textColor = UIColor.whiteColor()
+                self.label_Title.textColor = UIColor.gray
+                self.label_Text.textColor = UIColor.white
             }
         })
         if tableView != nil {

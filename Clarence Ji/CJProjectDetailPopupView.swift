@@ -28,13 +28,13 @@ class CJProjectDetailPopupView: UIView, UIScrollViewDelegate, UITableViewDelegat
     var array_Keys: [String]?
     var array_Values: [String]?
     
-    let screen = UIScreen.mainScreen().bounds
-    let selfWidth = UIScreen.mainScreen().bounds.width
-    let selfHeight = UIScreen.mainScreen().bounds.height
+    let screen = UIScreen.main.bounds
+    let selfWidth = UIScreen.main.bounds.width
+    let selfHeight = UIScreen.main.bounds.height
     var numberOfImages = 3
     var pageControl: UIPageControl!
     
-    let darkMode = NSUserDefaults.standardUserDefaults().boolForKey("DarkMode")
+    let darkMode = UserDefaults.standard.bool(forKey: "DarkMode")
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -42,19 +42,19 @@ class CJProjectDetailPopupView: UIView, UIScrollViewDelegate, UITableViewDelegat
     
     override func awakeFromNib() {
         // screen.height + selfHeight: Prepare for animation
-        let selfFrame = CGRectMake(0, screen.height + selfHeight, selfWidth, selfHeight)
+        let selfFrame = CGRect(x: 0, y: screen.height + selfHeight, width: selfWidth, height: selfHeight)
         self.frame = selfFrame
         
         // Blur View
-        var blurEffect = UIBlurEffect(style: .Dark)
+        var blurEffect = UIBlurEffect(style: .dark)
         if darkMode {
-            blurEffect = UIBlurEffect(style: .Light)
+            blurEffect = UIBlurEffect(style: .light)
         }
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = self.bounds
-        self.backgroundColor = .clearColor()
+        self.backgroundColor = .clear
         self.addSubview(blurView)
-        self.sendSubviewToBack(blurView)
+        self.sendSubview(toBack: blurView)
         
         // Add buttons
         self.addButtons()
@@ -63,7 +63,7 @@ class CJProjectDetailPopupView: UIView, UIScrollViewDelegate, UITableViewDelegat
         self.clipsToBounds = true
         
         self.scrollView_Images.delegate = self
-        self.scrollView_Images.pagingEnabled = true
+        self.scrollView_Images.isPagingEnabled = true
         // Image takes up 1/3 of whole view
         self.scrollViewHeightConstraint.constant = selfHeight / 3
         self.layoutIfNeeded()
@@ -78,7 +78,7 @@ class CJProjectDetailPopupView: UIView, UIScrollViewDelegate, UITableViewDelegat
         self.dict_ProjectInfo = jsonToDict()
     }
     
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if scrollView == self.scrollView_Images {
             let offsetLooping = 1
             let page = (scrollView.contentOffset.x - selfWidth / CGFloat(2)) / selfWidth + CGFloat(offsetLooping)
@@ -86,48 +86,48 @@ class CJProjectDetailPopupView: UIView, UIScrollViewDelegate, UITableViewDelegat
         }
     }
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView_Images.contentOffset.y != 0 {
-            scrollView_Images.contentOffset = CGPointMake(scrollView.contentOffset.x, 0)
+            scrollView_Images.contentOffset = CGPoint(x: scrollView.contentOffset.x, y: 0)
         }
     }
     
     override func removeFromSuperview() {
-        UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.5, options: .CurveEaseInOut, animations: {
-            self.center = CGPointMake(self.center.x, self.selfHeight * 2)
+        UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.5, options: UIViewAnimationOptions(), animations: {
+            self.center = CGPoint(x: self.center.x, y: self.selfHeight * 2)
             self.prevTableVC.btn_GoBack.alpha = 1.0
             self.alpha = 0
-            self.superview!.transform = CGAffineTransformMakeScale(1, 1)
+            self.superview!.transform = CGAffineTransform(scaleX: 1, y: 1)
             self.superview!.layer.cornerRadius = 0
         }) { (complete) -> Void in
-            self.prevTableVC.tableView.scrollEnabled = true
+            self.prevTableVC.tableView.isScrollEnabled = true
             super.removeFromSuperview()
         }
     }
     
-    func addImages(fileNames: [String]) {
+    func addImages(_ fileNames: [String]) {
         self.numberOfImages = fileNames.count
         
         // Populate ScrollView with Images
-        for (var i = 0; i < numberOfImages; i++) {
-            let frame = CGRectMake(
-                self.frame.size.width * CGFloat(i),
-                0,
-                self.frame.size.width,
-                scrollView_Images.frame.size.height
+        for i in 0 ..< numberOfImages {
+            let frame = CGRect(
+                x: self.frame.size.width * CGFloat(i),
+                y: 0,
+                width: self.frame.size.width,
+                height: scrollView_Images.frame.size.height
             )
             
             let imageView = UIImageView(frame: frame)
-            imageView.contentMode = .ScaleAspectFill
+            imageView.contentMode = .scaleAspectFill
             imageView.image = UIImage(named: fileNames[i])!
             imageView.clipsToBounds = true
             scrollView_Images.addSubview(imageView)
         }
         
-        scrollView_Images.contentSize = CGSizeMake(selfWidth * CGFloat(numberOfImages), selfHeight / 3);
+        scrollView_Images.contentSize = CGSize(width: selfWidth * CGFloat(numberOfImages), height: selfHeight / 3);
         
         // Add PageControl
-        pageControl = UIPageControl(frame: CGRectMake(0, scrollView_Images.frame.size.height + scrollView_Images.frame.origin.y - 20, selfWidth, 20))
+        pageControl = UIPageControl(frame: CGRect(x: 0, y: scrollView_Images.frame.size.height + scrollView_Images.frame.origin.y - 20, width: selfWidth, height: 20))
         pageControl.numberOfPages = numberOfImages
         self.addSubview(pageControl)
     }
@@ -139,34 +139,34 @@ class CJProjectDetailPopupView: UIView, UIScrollViewDelegate, UITableViewDelegat
         if darkMode {
             bgColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
         }
-        btn_Details = UIButton(frame: CGRectMake(0, selfHeight - 44, selfWidth / 2, 44))
-        btn_Details.setTitle("More Details", forState: .Normal)
+        btn_Details = UIButton(frame: CGRect(x: 0, y: selfHeight - 44, width: selfWidth / 2, height: 44))
+        btn_Details.setTitle("More Details", for: UIControlState())
         btn_Details.titleLabel?.font = font_Reg
         btn_Details.backgroundColor = bgColor
-        btn_Details.addTarget(self, action: Selector("btn_Details_Pressed:"), forControlEvents: .TouchUpInside)
-        btn_Done = UIButton(frame: CGRectMake(selfWidth / 2, selfHeight - 44, selfWidth / 2, 44))
-        btn_Done.setTitle("Done", forState: .Normal)
+        btn_Details.addTarget(self, action: #selector(CJProjectDetailPopupView.btn_Details_Pressed(_:)), for: .touchUpInside)
+        btn_Done = UIButton(frame: CGRect(x: selfWidth / 2, y: selfHeight - 44, width: selfWidth / 2, height: 44))
+        btn_Done.setTitle("Done", for: UIControlState())
         btn_Done.titleLabel?.font = font_Light
         btn_Done.backgroundColor = bgColor
-        btn_Done.addTarget(self, action: Selector("btn_Done_Pressed:"), forControlEvents: .TouchUpInside)
+        btn_Done.addTarget(self, action: #selector(CJProjectDetailPopupView.btn_Done_Pressed(_:)), for: .touchUpInside)
         self.addSubview(btn_Details)
         self.addSubview(btn_Done)
     }
     
-    func btn_Done_Pressed(sender: AnyObject) {
+    func btn_Done_Pressed(_ sender: AnyObject) {
         removeFromSuperview()
     }
     
-    func btn_Details_Pressed(sender: AnyObject) {
-        UIApplication.sharedApplication().openURL(NSURL(string: self.urlString)!)
+    func btn_Details_Pressed(_ sender: AnyObject) {
+        UIApplication.shared.openURL(URL(string: self.urlString)!)
     }
     
     func jsonToDict() -> [String: AnyObject] {
-        let path = NSBundle.mainBundle().pathForResource("Project_Info", ofType: "json")
+        let path = Bundle.main.path(forResource: "Project_Info", ofType: "json")
         do {
-            let data = try NSData(contentsOfFile: path!, options: .DataReadingMappedIfSafe)
+            let data = try Data(contentsOf: URL(fileURLWithPath: path!), options: .mappedIfSafe)
 //            var error: NSError?
-            let json = try! NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers) as! [String: AnyObject]
+            let json = try! JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! [String: AnyObject]
             return json
         } catch _ {
         }
@@ -174,7 +174,7 @@ class CJProjectDetailPopupView: UIView, UIScrollViewDelegate, UITableViewDelegat
         return [String: AnyObject]()
     }
     
-    func addContents(title: String) {
+    func addContents(_ title: String) {
         self.dict_CurrentProject = dict_ProjectInfo[title] as? [String: AnyObject]
         label_Title.text = title
         
@@ -184,9 +184,9 @@ class CJProjectDetailPopupView: UIView, UIScrollViewDelegate, UITableViewDelegat
             // 2 - URL
             var urlStringFromDict = currentDict["url"] as! String
             if urlStringFromDict[urlStringFromDict.startIndex] == "•" {
-                urlStringFromDict.removeAtIndex(urlStringFromDict.startIndex)
-                btn_Details.setImage(UIImage(named: "Troll-face"), forState: .Normal)
-                btn_Details.imageView?.contentMode = .ScaleAspectFit
+                urlStringFromDict.remove(at: urlStringFromDict.startIndex)
+                btn_Details.setImage(UIImage(named: "Troll-face"), for: UIControlState())
+                btn_Details.imageView?.contentMode = .scaleAspectFit
             }
             self.urlString = urlStringFromDict
             // 3 - Description
@@ -198,7 +198,7 @@ class CJProjectDetailPopupView: UIView, UIScrollViewDelegate, UITableViewDelegat
             ]
             let attrString = NSMutableAttributedString(string: string!, attributes: attributes)
             self.label_Description.attributedText = attrString
-            self.label_Description.textAlignment = .Center
+            self.label_Description.textAlignment = .center
             // 4 - Details
             array_Keys = [String]()
             array_Values = [String]()
@@ -212,20 +212,20 @@ class CJProjectDetailPopupView: UIView, UIScrollViewDelegate, UITableViewDelegat
         
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if array_Keys != nil {
             return array_Keys!.count
         }
         return 0
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = NSBundle.mainBundle().loadNibNamed("CJProjectDetailPopupView", owner: self, options: nil)[1] as! CJProjectDetailPopupView_Cell
-        cell.selectionStyle = .None
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = Bundle.main.loadNibNamed("CJProjectDetailPopupView", owner: self, options: nil)?[1] as! CJProjectDetailPopupView_Cell
+        cell.selectionStyle = .none
         
         let attrStyle = NSMutableParagraphStyle()
         attrStyle.lineSpacing = 7
@@ -240,7 +240,7 @@ class CJProjectDetailPopupView: UIView, UIScrollViewDelegate, UITableViewDelegat
             cell.label_Key.attributedText = attrString_Key
             cell.label_Value.attributedText = attrString_Value
             
-            cell.label_Key.textAlignment = .Right
+            cell.label_Key.textAlignment = .right
             
             cell.label_Key_ConstraintWidth.constant = self.frame.size.width * 0.32
             cell.layoutIfNeeded()

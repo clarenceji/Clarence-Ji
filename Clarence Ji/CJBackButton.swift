@@ -15,15 +15,15 @@ class CJBackButton: UIButton, UIGestureRecognizerDelegate {
     var blackLayer = UIView()
     
     override init(frame: CGRect) {
-        super.init(frame: CGRectMake(frame.origin.x, frame.origin.y, 30, 30))
-        self.setImage(UIImage(named: "BackButton"), forState: .Normal)
+        super.init(frame: CGRect(x: frame.origin.x, y: frame.origin.y, width: 30, height: 30))
+        self.setImage(UIImage(named: "BackButton"), for: UIControlState())
         
-        let blurEffect = UIBlurEffect(style: .Light)
+        let blurEffect = UIBlurEffect(style: .light)
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.frame = self.bounds
         blurView.layer.cornerRadius = self.bounds.width / 2
         blurView.clipsToBounds = true
-        blurView.userInteractionEnabled = true
+        blurView.isUserInteractionEnabled = true
         self.insertSubview(blurView, belowSubview: imageView!)
         
         blackLayer.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.6)
@@ -38,37 +38,37 @@ class CJBackButton: UIButton, UIGestureRecognizerDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func addAction(source: UIViewController) {
+    func addAction(_ source: UIViewController) {
         self.sourceView = source
         
         let recog_Tap = UITapGestureRecognizer()
         recog_Tap.delegate = self
-        recog_Tap.addTarget(self, action: Selector("buttonPressed:"))
+        recog_Tap.addTarget(self, action: #selector(CJBackButton.buttonPressed(_:)))
         self.addGestureRecognizer(recog_Tap)
     }
     
-    func buttonPressed(recog: UITapGestureRecognizer) {
-        self.sourceView.navigationController?.popViewControllerAnimated(true)
+    func buttonPressed(_ recog: UITapGestureRecognizer) {
+        self.sourceView.navigationController?.popViewController(animated: true)
     }
     
     
     var prevTouchLocation: CGPoint!
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        prevTouchLocation = (touches.first! ).locationInView(self)
-        UIView.animateWithDuration(0.2, animations: {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        prevTouchLocation = (touches.first! ).location(in: self)
+        UIView.animate(withDuration: 0.2, animations: {
             self.blackLayer.alpha = 1.0
         })
     }
     
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        let currentTouchLocation = (touches.first! ).locationInView(self)
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let currentTouchLocation = (touches.first! ).location(in: self)
         // Calculate touch displacement
         let displacementX = abs(currentTouchLocation.x - prevTouchLocation.x)
         let displacementY = abs(currentTouchLocation.y - prevTouchLocation.y)
         let displacement = sqrt(displacementX * displacementX + displacementY * displacementY)
         if displacement > 30 {
-            UIView.animateWithDuration(0.2, animations: {
+            UIView.animate(withDuration: 0.2, animations: {
                 self.blackLayer.alpha = 0.0
             })
         }

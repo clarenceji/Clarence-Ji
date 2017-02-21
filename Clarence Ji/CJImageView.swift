@@ -11,7 +11,7 @@ import UIKit
 class CJImageView: UIImageView {
     override init(image: UIImage?) {
         super.init(image: image)
-        self.contentMode = .ScaleAspectFill
+        self.contentMode = .scaleAspectFill
         self.resize(image)
     }
     
@@ -19,11 +19,11 @@ class CJImageView: UIImageView {
         super.init(coder: aDecoder)
     }
     
-    func resize(image: UIImage!) {
-        let screenWidth = UIScreen.mainScreen().bounds.width
+    func resize(_ image: UIImage!) {
+        let screenWidth = UIScreen.main.bounds.width
         let imageRatio = image.size.height / image.size.width
         let imageViewHeight = screenWidth * imageRatio
         
-        self.frame = CGRectMake(0, 0, screenWidth, imageViewHeight)
+        self.frame = CGRect(x: 0, y: 0, width: screenWidth, height: imageViewHeight)
     }
 }

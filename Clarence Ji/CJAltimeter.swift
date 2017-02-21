@@ -15,33 +15,33 @@ class CJAltimeter {
     
     var pressure: Float!
     
-    func getPressure(completion: (success: Bool, reading: Float?) -> Void) {
+    func getPressure(_ completion: @escaping (_ success: Bool, _ reading: Float?) -> Void) {
         if CMAltimeter.isRelativeAltitudeAvailable() {
-            altimeter.startRelativeAltitudeUpdatesToQueue(NSOperationQueue.currentQueue()!, withHandler: { (altdata, error) -> Void in
+            altimeter.startRelativeAltitudeUpdates(to: OperationQueue.current!, withHandler: { (altdata, error) -> Void in
                 self.pressure = altdata?.pressure.floatValue
                 self.altimeter.stopRelativeAltitudeUpdates()
-                completion(success: true, reading: self.pressure * 10)
+                completion(true, self.pressure * 10)
             })
         } else {
-            completion(success: false, reading: nil)
+            completion(false, nil)
         }
     }
     
-    func setAppMode(isPressureAvailable: Bool) {
-        NSUserDefaults.standardUserDefaults().setBool(false, forKey: "DarkMode")
+    func setAppMode(_ isPressureAvailable: Bool) {
+        UserDefaults.standard.set(false, forKey: "DarkMode")
         if isPressureAvailable && (pressure * 10) < 1000 {
             // Based on Air Pressure, Set Dark Mode
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "DarkMode")
+            UserDefaults.standard.set(true, forKey: "DarkMode")
         }
         
         if !isPressureAvailable {
-            let date = NSDate()
-            let calendar = NSCalendar.currentCalendar()
-            let components = calendar.components([.Hour, .Minute], fromDate: date)
+            let date = Date()
+            let calendar = Calendar.current
+            let components = (calendar as NSCalendar).components([.hour, .minute], from: date)
             let hour = components.hour
-            if hour >= 18 || hour <= 6 {
+            if hour! >= 18 || hour! <= 6 {
                 // Based on Current Time, Set Dark Mode
-                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "DarkMode")
+                UserDefaults.standard.set(true, forKey: "DarkMode")
             }
         }
     }

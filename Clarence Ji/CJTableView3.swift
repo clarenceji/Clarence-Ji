@@ -16,12 +16,12 @@ class CJTableView3: UITableViewController, UIViewControllerTransitioningDelegate
 
         tableView.estimatedRowHeight = 68.0
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.tableFooterView = UIView(frame: CGRectZero)
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
         
         self.navigationController?.hidesBarsOnSwipe = false
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         navigationController!.setNavigationBarHidden(false, animated: true)
     }
 
@@ -31,26 +31,26 @@ class CJTableView3: UITableViewController, UIViewControllerTransitioningDelegate
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // Return the number of sections.
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
         return 4
     }
     
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = NSBundle.mainBundle().loadNibNamed("CJTableView3_Cell", owner: self, options: nil)[0] as! CJTableView3_Cell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = Bundle.main.loadNibNamed("CJTableView3_Cell", owner: self, options: nil)?[0] as! CJTableView3_Cell
         cell.setLabels(indexPath.row)
         cell.tableView = self
         switch indexPath.row {
             
         case 2, 3:
-            cell.selectionStyle = .Gray
-            cell.accessoryType = .DisclosureIndicator
+            cell.selectionStyle = .gray
+            cell.accessoryType = .disclosureIndicator
         default:
             break
         }
@@ -58,13 +58,13 @@ class CJTableView3: UITableViewController, UIViewControllerTransitioningDelegate
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.cellForRowAtIndexPath(indexPath)?.selected = false
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.cellForRow(at: indexPath)?.isSelected = false
         switch indexPath.row {
         case 2:
             self.sendEmail()
         case 3:
-            UIApplication.sharedApplication().openURL(NSURL(string: "http://clarenceji.net")!)
+            UIApplication.shared.openURL(URL(string: "http://clarenceji.net")!)
         default:
             break
         }
@@ -73,7 +73,7 @@ class CJTableView3: UITableViewController, UIViewControllerTransitioningDelegate
     func sendEmail() {
         let emailViewController = configuredMailComposeViewController()
         if MFMailComposeViewController.canSendMail() {
-            self.presentViewController(emailViewController, animated: true, completion: nil)
+            self.present(emailViewController, animated: true, completion: nil)
         } else {
             self.showSendMailErrorAlert()
         }
@@ -91,13 +91,13 @@ class CJTableView3: UITableViewController, UIViewControllerTransitioningDelegate
     }
     
     func showSendMailErrorAlert() {
-        let sendMailErrorAlert = UIAlertController(title: "Cannot Send Email", message: "Please check your email settings and try again.", preferredStyle: .Alert)
-        sendMailErrorAlert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
-        self.presentViewController(sendMailErrorAlert, animated: true, completion: nil)
+        let sendMailErrorAlert = UIAlertController(title: "Cannot Send Email", message: "Please check your email settings and try again.", preferredStyle: .alert)
+        sendMailErrorAlert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(sendMailErrorAlert, animated: true, completion: nil)
     }
     
     // MARK: MFMailComposeViewControllerDelegate Method
-    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
-        controller.dismissViewControllerAnimated(true, completion: nil)
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }

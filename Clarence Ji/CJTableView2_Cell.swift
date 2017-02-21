@@ -18,7 +18,7 @@ class CJTableView2_Cell: UITableViewCell {
         label_Main.textContainerInset = UIEdgeInsetsMake(15, 7, 15, 7)
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     

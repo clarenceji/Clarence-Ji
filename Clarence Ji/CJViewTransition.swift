@@ -11,31 +11,31 @@ import UIKit
 
 class CJViewTransition: NSObject, UIViewControllerAnimatedTransitioning {
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.8
     }
     
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        let fromViewController: UIViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
-        let toViewController: UIViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        let fromViewController: UIViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)!
+        let toViewController: UIViewController = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)!
 //        var sourceRect: CGRect = transitionContext.initialFrameForViewController(fromViewController)
         
-        let containerView: UIView = transitionContext.containerView()!
+        let containerView: UIView = transitionContext.containerView
         containerView.insertSubview(toViewController.view, belowSubview: fromViewController.view)
         
-        toViewController.view.transform = CGAffineTransformMakeScale(0.8, 0.8)
-        toViewController.view.center.x += UIScreen.mainScreen().bounds.width
+        toViewController.view.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        toViewController.view.center.x += UIScreen.main.bounds.width
         
-        dispatch_async(dispatch_get_main_queue(), {
-            UIView.animateWithDuration(0.8, animations: {
+        DispatchQueue.main.async(execute: {
+            UIView.animate(withDuration: 0.8, animations: {
                 
-                fromViewController.view.transform = CGAffineTransformMakeScale(0.8, 0.8)
-                fromViewController.view.center.x -= UIScreen.mainScreen().bounds.width
+                fromViewController.view.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+                fromViewController.view.center.x -= UIScreen.main.bounds.width
                 
                 
-                UIView.animateWithDuration(0.8, animations: {
-                    toViewController.view.center.x -= UIScreen.mainScreen().bounds.width
-                                        toViewController.view.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                UIView.animate(withDuration: 0.8, animations: {
+                    toViewController.view.center.x -= UIScreen.main.bounds.width
+                                        toViewController.view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                     }, completion: nil)
                 
                 }, completion: {(finished: Bool) in

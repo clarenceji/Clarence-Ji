@@ -23,48 +23,48 @@ class CJTableView1_Cell: UITableViewCell {
         view_BlackLayer.alpha = 0
         
         // Create shadow for label
-        label_Title.layer.shadowColor = UIColor.blackColor().CGColor
+        label_Title.layer.shadowColor = UIColor.black.cgColor
         label_Title.layer.shadowRadius = 3.0
         label_Title.layer.shadowOpacity = 1.0
-        label_Title.layer.shadowOffset = CGSizeMake(1, 2)
+        label_Title.layer.shadowOffset = CGSize(width: 1, height: 2)
         
-        self.selectionStyle = .None
+        self.selectionStyle = .none
         
-        let recognizer_Tap = UITapGestureRecognizer(target: self, action: Selector("cellTapped:"))
+        let recognizer_Tap = UITapGestureRecognizer(target: self, action: #selector(CJTableView1_Cell.cellTapped(_:)))
         self.addGestureRecognizer(recognizer_Tap)
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
     func animateBlackLayer() {
-        dispatch_async(dispatch_get_main_queue(), {
-            UIView.animateWithDuration(0.2, animations: {
+        DispatchQueue.main.async(execute: {
+            UIView.animate(withDuration: 0.2, animations: {
                 self.view_BlackLayer.alpha = 1
             })
         })
     }
     
     func hideBlackLayer() {
-        dispatch_async(dispatch_get_main_queue(), {
-            UIView.animateWithDuration(0.2, animations: {
+        DispatchQueue.main.async(execute: {
+            UIView.animate(withDuration: 0.2, animations: {
                 self.view_BlackLayer.alpha = 0
             })
         })
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        prevTouchLocation = (touches.first! ).locationInView(self)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        prevTouchLocation = (touches.first! ).location(in: self)
         animateBlackLayer()
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         hideBlackLayer()
     }
     
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        let currentTouchLocation = (touches.first! ).locationInView(self)
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let currentTouchLocation = (touches.first! ).location(in: self)
         // Calculate touch displacement
         let displacementX = abs(currentTouchLocation.x - prevTouchLocation.x)
         let displacementY = abs(currentTouchLocation.y - prevTouchLocation.y)
@@ -75,14 +75,14 @@ class CJTableView1_Cell: UITableViewCell {
         
     }
     
-    func cellTapped(recog_Tap: UITapGestureRecognizer) {
-        if NSUserDefaults.standardUserDefaults().boolForKey("DarkMode") {
-            tableView.view.backgroundColor = UIColor.blackColor()
+    func cellTapped(_ recog_Tap: UITapGestureRecognizer) {
+        if UserDefaults.standard.bool(forKey: "DarkMode") {
+            tableView.view.backgroundColor = UIColor.black
         }
         
         self.hideBlackLayer()
         
-        let detailView = self.tableView.storyboard!.instantiateViewControllerWithIdentifier("CJTableView2") as! CJTableView2
+        let detailView = self.tableView.storyboard!.instantiateViewController(withIdentifier: "CJTableView2") as! CJTableView2
         detailView.headerCell(self)
         detailView.indexFromPrevView = index
         self.tableView.navigationController?.pushViewController(detailView, animated: true)

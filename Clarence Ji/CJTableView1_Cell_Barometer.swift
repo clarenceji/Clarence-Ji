@@ -19,41 +19,41 @@ class CJTableView1_Cell_Barometer: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        if NSUserDefaults.standardUserDefaults().boolForKey("AltimeterReadingReady") {
-            let pressure = NSUserDefaults.standardUserDefaults().floatForKey("AltimeterReading")
+        if UserDefaults.standard.bool(forKey: "AltimeterReadingReady") {
+            let pressure = UserDefaults.standard.float(forKey: "AltimeterReading")
             self.label_Reading.text = "\(pressure) hPa"
         } else {
             timerTick(nil)
             label_Title.text = "Your Local Time"
         }
-        self.selectionStyle = .None
+        self.selectionStyle = .none
         self.separatorInset = UIEdgeInsetsMake(0, 1200, 0, 0)
     }
     
-    let dateFormatter = NSDateFormatter()
+    let dateFormatter = DateFormatter()
     
-    func timerTick(timer: NSTimer?) {
-        let now = NSDate()
+    func timerTick(_ timer: Timer?) {
+        let now = Date()
         dateFormatter.dateFormat = "HH:mm:ss"
-        dispatch_async(dispatch_get_main_queue(), {
-            self.label_Reading.text = self.dateFormatter.stringFromDate(now)
+        DispatchQueue.main.async(execute: {
+            self.label_Reading.text = self.dateFormatter.string(from: now)
         })
     }
     
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
     func setDarkMode() {
-        label_Reading.textColor = UIColor.whiteColor()
-        label_Title.textColor = UIColor.whiteColor()
-        backgroundColor = UIColor.blackColor()
-        btn_Info.tintColor = UIColor.whiteColor()
+        label_Reading.textColor = UIColor.white
+        label_Title.textColor = UIColor.white
+        backgroundColor = UIColor.black
+        btn_Info.tintColor = UIColor.white
     }
     
-    @IBAction func btn_Info_Clicked(sender: AnyObject) {
-        let view_Info = view_TableViewController.storyboard!.instantiateViewControllerWithIdentifier("CJTableView3") as! UITableViewController
+    @IBAction func btn_Info_Clicked(_ sender: AnyObject) {
+        let view_Info = view_TableViewController.storyboard!.instantiateViewController(withIdentifier: "CJTableView3") as! UITableViewController
         view_TableViewController.navigationController!.pushViewController(view_Info, animated: true)
     }
 
