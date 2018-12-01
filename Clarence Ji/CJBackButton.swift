@@ -47,7 +47,7 @@ class CJBackButton: UIButton, UIGestureRecognizerDelegate {
         self.addGestureRecognizer(recog_Tap)
     }
     
-    func buttonPressed(_ recog: UITapGestureRecognizer) {
+    @objc func buttonPressed(_ recog: UITapGestureRecognizer) {
         self.sourceView.navigationController?.popViewController(animated: true)
     }
     

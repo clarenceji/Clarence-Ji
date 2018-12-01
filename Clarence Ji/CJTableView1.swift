@@ -135,7 +135,7 @@ class CJTableView1: UITableViewController {
     }
     
 
-    func updateTime(_ timer: Timer) {
+    @objc func updateTime(_ timer: Timer) {
         if let barometerCell = tableView.cellForRow(at: IndexPath(row: 4, section: 0)) as? CJTableView1_Cell_Barometer {
             barometerCell.timerTick(nil)
         }

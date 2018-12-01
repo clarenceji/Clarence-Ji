@@ -28,6 +28,8 @@ class ViewController: UIViewController, UIViewControllerTransitioningDelegate {
             launchImageName = "LaunchImage-800-667h@2x.png"
         case 736:
             launchImageName = "LaunchImage-800-Portrait-736h@3x.png"
+        case 812:
+            launchImageName = "SuperRetina_5.8.jpg"
         default:
             launchImageName = "LaunchImage"
         }

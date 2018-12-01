@@ -1,30 +1,35 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E26a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="M4Y-Lb-cyx">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Today View Controller-->
         <scene sceneID="cwh-vc-ff4">
             <objects>
-                <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="Clarence_in_Notification_Center" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="WWDC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ft6-oW-KC0"/>
                         <viewControllerLayoutGuide type="bottom" id="FKl-LY-JtV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="640"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cj_wwdc_fb_banner" translatesAutoresizingMaskIntoConstraints="NO" id="n1i-CY-FbD">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WWDC18-Clarence" translatesAutoresizingMaskIntoConstraints="NO" id="n1i-CY-FbD">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="640"/>
                             </imageView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="n1i-CY-FbD" firstAttribute="bottom" secondItem="FKl-LY-JtV" secondAttribute="top" id="4fj-s6-blF"/>
-                            <constraint firstAttribute="trailing" secondItem="n1i-CY-FbD" secondAttribute="trailing" id="Jf4-AD-dC1"/>
-                            <constraint firstItem="n1i-CY-FbD" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" id="iBi-H5-8aU"/>
-                            <constraint firstItem="n1i-CY-FbD" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" id="y86-p3-OhI"/>
+                            <constraint firstItem="n1i-CY-FbD" firstAttribute="centerY" secondItem="S3S-Oj-5AN" secondAttribute="centerY" id="9ve-3s-A9E"/>
+                            <constraint firstItem="n1i-CY-FbD" firstAttribute="width" secondItem="S3S-Oj-5AN" secondAttribute="width" id="EMZ-C7-FAp"/>
+                            <constraint firstItem="n1i-CY-FbD" firstAttribute="centerX" secondItem="S3S-Oj-5AN" secondAttribute="centerX" id="VDs-re-loC"/>
+                            <constraint firstItem="n1i-CY-FbD" firstAttribute="height" secondItem="S3S-Oj-5AN" secondAttribute="height" id="WT7-Kn-xlN"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -33,7 +38,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="130"/>
+                    <size key="freeformSize" width="320" height="640"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -41,11 +46,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cj_wwdc_fb_banner" width="851" height="315"/>
+        <image name="WWDC18-Clarence" width="960" height="1920"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

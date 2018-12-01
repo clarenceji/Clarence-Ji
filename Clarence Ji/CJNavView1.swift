@@ -11,14 +11,14 @@ import UIKit
 class CJNavView1: UINavigationController, UIViewControllerTransitioningDelegate {
     
     static let titleAttributes = [
-        NSFontAttributeName : UIFont(name: "MyriadPro-Regular", size: 18)!
+        NSAttributedStringKey.font : UIFont(name: "MyriadPro-Regular", size: 18)!
     ]
     static let titleAttributesDark = [
-        NSFontAttributeName : UIFont(name: "MyriadPro-Regular", size: 18)!,
-        NSForegroundColorAttributeName : UIColor.white
+        NSAttributedStringKey.font : UIFont(name: "MyriadPro-Regular", size: 18)!,
+        NSAttributedStringKey.foregroundColor : UIColor.white
     ]
     static let barItemAttributes = [
-        NSFontAttributeName : UIFont(name: "MyriadPro-Light", size: 16)!
+        NSAttributedStringKey.font : UIFont(name: "MyriadPro-Light", size: 16)!
     ]
     
     class func applyNavigationBarStyle() {

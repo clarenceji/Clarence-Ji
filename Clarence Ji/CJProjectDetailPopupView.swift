@@ -153,11 +153,11 @@ class CJProjectDetailPopupView: UIView, UIScrollViewDelegate, UITableViewDelegat
         self.addSubview(btn_Done)
     }
     
-    func btn_Done_Pressed(_ sender: AnyObject) {
+    @objc func btn_Done_Pressed(_ sender: AnyObject) {
         removeFromSuperview()
     }
     
-    func btn_Details_Pressed(_ sender: AnyObject) {
+    @objc func btn_Details_Pressed(_ sender: AnyObject) {
         UIApplication.shared.openURL(URL(string: self.urlString)!)
     }
     
@@ -194,7 +194,7 @@ class CJProjectDetailPopupView: UIView, UIScrollViewDelegate, UITableViewDelegat
             let attrStyle = NSMutableParagraphStyle()
             attrStyle.lineSpacing = 7
             let attributes = [
-                NSParagraphStyleAttributeName: attrStyle
+                NSAttributedStringKey.paragraphStyle: attrStyle
             ]
             let attrString = NSMutableAttributedString(string: string!, attributes: attributes)
             self.label_Description.attributedText = attrString
@@ -230,7 +230,7 @@ class CJProjectDetailPopupView: UIView, UIScrollViewDelegate, UITableViewDelegat
         let attrStyle = NSMutableParagraphStyle()
         attrStyle.lineSpacing = 7
         let attributes = [
-            NSParagraphStyleAttributeName: attrStyle
+            NSAttributedStringKey.paragraphStyle: attrStyle
         ]
         
         if array_Keys != nil && array_Values != nil {

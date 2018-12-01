@@ -226,18 +226,18 @@ class CJTableView2: UITableViewController {
             for element in array {
                 var string = element
                 var attributes = [
-                    NSParagraphStyleAttributeName: attrStyle,
-                    NSFontAttributeName: UIFont(name: "MyriadPro-Light", size: 17.0)!
+                    NSAttributedStringKey.paragraphStyle: attrStyle,
+                    NSAttributedStringKey.font: UIFont(name: "MyriadPro-Light", size: 17.0)!
                 ]
                 var attrString = NSMutableAttributedString(string: string, attributes: attributes)
                 if string[string.startIndex] == "•" {
                     string.remove(at: string.startIndex)
-                    attributes[NSFontAttributeName] = UIFont(name: "MyriadPro-Regular", size: 17.0)!
+                    attributes[NSAttributedStringKey.font] = UIFont(name: "MyriadPro-Regular", size: 17.0)!
                     
                     let newAttrStyle = attrStyle.mutableCopy() as! NSMutableParagraphStyle
                     newAttrStyle.paragraphSpacing = 3
                     newAttrStyle.lineSpacing = 0
-                    attributes[NSParagraphStyleAttributeName] = newAttrStyle
+                    attributes[NSAttributedStringKey.paragraphStyle] = newAttrStyle
                     
                     attrString = NSMutableAttributedString(string: string, attributes: attributes)
                 }

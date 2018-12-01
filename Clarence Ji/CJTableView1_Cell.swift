@@ -75,7 +75,7 @@ class CJTableView1_Cell: UITableViewCell {
         
     }
     
-    func cellTapped(_ recog_Tap: UITapGestureRecognizer) {
+    @objc func cellTapped(_ recog_Tap: UITapGestureRecognizer) {
         if UserDefaults.standard.bool(forKey: "DarkMode") {
             tableView.view.backgroundColor = UIColor.black
         }

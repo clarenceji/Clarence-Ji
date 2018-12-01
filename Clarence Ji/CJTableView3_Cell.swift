@@ -48,7 +48,7 @@ class CJTableView3_Cell: UITableViewCell, MFMailComposeViewControllerDelegate {
         let attrString = NSMutableAttributedString(string: strings_Text[cellAtRow])
         let attrStyle = NSMutableParagraphStyle()
         attrStyle.lineSpacing = 8
-        attrString.addAttribute(NSParagraphStyleAttributeName, value: attrStyle, range: NSMakeRange(0, strings_Text[cellAtRow].characters.count))
+        attrString.addAttribute(NSAttributedStringKey.paragraphStyle, value: attrStyle, range: NSMakeRange(0, strings_Text[cellAtRow].characters.count))
         label_Text.attributedText = attrString
         
         
